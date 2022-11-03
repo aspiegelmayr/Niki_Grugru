@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import * as React from 'react';
 
-import HelloWorldScene from './scenes/HelloWorldScene';
+import HelloWorldScene from './scenes/DressUpScene';
 
 const DressUpGame: React.FunctionComponent = () => {
 
@@ -12,7 +12,7 @@ const DressUpGame: React.FunctionComponent = () => {
             width: '100%',
             height: '100%',
             // backgroundColor: '#081919',
-            backgroundColor: '#000b18',
+            backgroundColor: '#FEF5CB',
             physics: {
                 default: 'arcade',
                 arcade: {

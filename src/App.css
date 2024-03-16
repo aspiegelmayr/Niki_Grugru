@@ -3,7 +3,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #FEF5CB;
+  background-color: white
 }
 
 .App-logo {
@@ -18,7 +18,7 @@
 }
 
 .App-header {
-  background-color: #FEF5CB;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

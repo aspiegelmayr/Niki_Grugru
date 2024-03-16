@@ -37,4 +37,3 @@ const GameContent: React.FunctionComponent = () => (
   <div>
       <div id="game-root" data-testid="game-container"></div>
   </div>)
-

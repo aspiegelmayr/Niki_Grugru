@@ -10,6 +10,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-canvas {
-  display: block;
+.content {
+  top: 100px;
+  position: fixed;
+}
+
+.hatButton {
+  top: -50px;position: relative;left: -400px;
+}
+
+.accessoriesButton {
+  top: -50px;position: relative;left: -400px;
+}
+
+.topsButton {
+  top: -50px;position: relative;left: -400px;
+}
+
+.bottomsButton {
+  top: -50px;position: relative;left: -400px;
+}
+
+.overallsButton {
+  top: -50px;position: relative;left: -400px;
+}
+
+.mainContent {
+  position: absolute;
+  top: 50px;
+}
+
+.mainPage__headerimage {
+  max-width: 100%;
+}
+
+.mainPage__about {
+  padding-top: 50px;
+  text-align: justify;
+  max-width: 50%;
+  margin: auto;
+}
+
+.mainPage__audiobookcover {
+  max-width: 300px;
+  margin-top: 10px;
 }

@@ -26,10 +26,6 @@ export default class HelloWorldScene extends Phaser.Scene {
 
 
   preload() {
-
-    this.load.image('logo', 'assets/sprites/phaser3-logo.png')
-    this.load.image('red', 'assets/particles/red.png')
-
     characters.forEach(image => {
       this.load.image(image.name, image.file);
   });
@@ -59,7 +55,7 @@ export default class HelloWorldScene extends Phaser.Scene {
     const niki = this.add.image(window.innerWidth*0.75, window.innerHeight/2, 'niki')
     niki.setScale(0.1)
 
-    const hatBtn = this.add.text(window.innerWidth*0.25, window.innerHeight/2, 'next hat')
+    const hatBtn = this.add.image(window.innerWidth*0.25, window.innerHeight/2, 'next hat')
     hatBtn.setInteractive({ useHandCursor: true })
     hatBtn.on('pointerdown', nextHat)
 

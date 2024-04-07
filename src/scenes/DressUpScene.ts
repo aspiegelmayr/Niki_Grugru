@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import { accessoriesOnNiki, bottomsOnNiki, characters, hatsOnNiki, overallsOnNiki, shoesOnNiki, topsOnNiki } from '../GameAssets'
+import { accessoriesOnNiki, bottomsOnNiki, characters, hatsOnNiki, overallsOnNiki, shoesOnNiki, topsOnNiki, closetImage } from '../games/DressUpGame/DressUpGameAssets'
 
 let curHat = 0
 let hats: Phaser.GameObjects.Image[] = []
@@ -18,6 +18,13 @@ let accessories: Phaser.GameObjects.Image[] = []
 
 let curOverall = 0
 let overalls: Phaser.GameObjects.Image[] = []
+
+let hatBtns: Phaser.GameObjects.Image[] = [];
+let topBtns: Phaser.GameObjects.Image[] = [];
+let bottomBtns: Phaser.GameObjects.Image[] = [];
+let overallsBtns: Phaser.GameObjects.Image[] = [];
+let accessoriesBtns: Phaser.GameObjects.Image[] = [];
+let shoesBtns: Phaser.GameObjects.Image[] = [];
 
 export default class HelloWorldScene extends Phaser.Scene {
   constructor() {
@@ -49,35 +56,82 @@ export default class HelloWorldScene extends Phaser.Scene {
   accessoriesOnNiki.forEach(image => {
     this.load.image(image.name, image.file);
   });
+
+  this.load.image(closetImage.name, closetImage.file);
   }
 
   create() {
     const niki = this.add.image(window.innerWidth*0.75, window.innerHeight/2, 'niki')
     niki.setScale(0.1)
 
-    const hatBtn = this.add.image(window.innerWidth*0.25, window.innerHeight/2, 'next hat')
-    hatBtn.setInteractive({ useHandCursor: true })
-    hatBtn.on('pointerdown', nextHat)
+    const closet = this.add.image(window.innerWidth*0.25, window.innerHeight/2, 'closet')
+    closet.setScale(0.5)
 
-    const topBtn = this.add.text(window.innerWidth*0.25, window.innerHeight/2 + 20, 'next top')
-    topBtn.setInteractive({ useHandCursor: true })
-    topBtn.on('pointerdown', nextTop)
+    hatsOnNiki.forEach(hat => {
+      const hatBtn = this.add.image(200,400, hat.name)
+      hatBtn.setInteractive({ useHandCursor: true })
+      hatBtn.setScale(0.1)
+      hatBtn.on('pointerdown', nextHat)
+      hatBtn.setVisible(false);
+      hatBtns.push(hatBtn);
+    })
 
-    const bottomBtn = this.add.text(window.innerWidth*0.25, window.innerHeight/2 + 40, 'next bottom')
-    bottomBtn.setInteractive({ useHandCursor: true })
-    bottomBtn.on('pointerdown', nextBottom)
+    hatBtns[0].setVisible(true);
 
-    const shoesBtn = this.add.text(window.innerWidth*0.25, window.innerHeight/2 +60, 'next shoes')
-    shoesBtn.setInteractive({ useHandCursor: true })
-    shoesBtn.on('pointerdown', nextShoes)
+    topsOnNiki.forEach(top => {
+      const topBtn = this.add.image(350,350, top.name)
+      topBtn.setInteractive({ useHandCursor: true })
+      topBtn.setScale(0.1)
+      topBtn.on('pointerdown', nextTop)
+      topBtn.setVisible(false);
+      topBtns.push(topBtn);
+    })
 
-    const accessoryBtn = this.add.text(window.innerWidth*0.25, window.innerHeight/2 +80, 'next accessory')
-    accessoryBtn.setInteractive({ useHandCursor: true })
-    accessoryBtn.on('pointerdown', nextAccessory)
+    topBtns[0].setVisible(true);
 
-    const overallBtn = this.add.text(window.innerWidth*0.25, window.innerHeight/2 - 20, 'next overall')
-    overallBtn.setInteractive({ useHandCursor: true })
-    overallBtn.on('pointerdown', nextOverall)
+    bottomsOnNiki.forEach(bottom => {
+      const bottomBtn = this.add.image(500,300, bottom.name)
+      bottomBtn.setInteractive({ useHandCursor: true })
+      bottomBtn.setScale(0.1)
+      bottomBtn.on('pointerdown', nextBottom)
+      bottomBtn.setVisible(false);
+      bottomBtns.push(bottomBtn);
+    })
+
+    bottomBtns[0].setVisible(true);
+
+    shoesOnNiki.forEach(shoe => {
+      const shoeBtn = this.add.image(350,450, shoe.name)
+      shoeBtn.setInteractive({ useHandCursor: true })
+      shoeBtn.setScale(0.1)
+      shoeBtn.on('pointerdown', nextBottom)
+      shoeBtn.setVisible(false);
+      shoesBtns.push(shoeBtn);
+    })
+
+    shoesBtns[0].setVisible(true);
+
+    accessoriesOnNiki.forEach(accessory => {
+      const accessoryBtn = this.add.image(350,350, accessory.name)
+      accessoryBtn.setInteractive({ useHandCursor: true })
+      accessoryBtn.setScale(0.1)
+      accessoryBtn.on('pointerdown', nextBottom)
+      accessoryBtn.setVisible(false);
+      accessoriesBtns.push(accessoryBtn);
+    })
+
+    accessoriesBtns[0].setVisible(true);
+
+    overallsOnNiki.forEach(overall => {
+      const overallBtn = this.add.image(250,250, overall.name)
+      overallBtn.setInteractive({ useHandCursor: true })
+      overallBtn.setScale(0.1)
+      overallBtn.on('pointerdown', nextBottom)
+      overallBtn.setVisible(false);
+      overallsBtns.push(overallBtn);
+    })
+
+    overallsBtns[0].setVisible(true);
 
 
     // HATS
@@ -142,6 +196,8 @@ function nextHat() {
   if(curHat > hats.length){
     curHat = 0
   }
+  hatBtns[curHat].setVisible(true);
+  hatBtns[oldHat].setVisible(false);
   setObjVisible(hats, curHat, oldHat)
 }
 
@@ -160,6 +216,8 @@ function nextBottom() {
   if(curBottom > bottoms.length){
     curBottom = 0
   }
+  bottomBtns[curBottom].setVisible(true);
+  bottomBtns[oldBottom].setVisible(false);
   setObjVisible(bottoms, curBottom, oldBottom)
 }
 
@@ -169,6 +227,8 @@ function nextShoes() {
   if(curShoes > shoes.length){
     curShoes = 0
   }
+  shoesBtns[curShoes].setVisible(true);
+  shoesBtns[oldShoes].setVisible(false);
   setObjVisible(shoes, curShoes, oldShoes)
 }
 
@@ -178,6 +238,8 @@ function nextAccessory() {
   if(curAccessory > accessories.length){
     curAccessory = 0
   }
+  accessoriesBtns[curAccessory].setVisible(true);
+  accessoriesBtns[oldAccessory].setVisible(false);
   setObjVisible(accessories, curAccessory, oldAccessory)
 }
 
@@ -187,6 +249,8 @@ function nextOverall() {
   if(curOverall > overalls.length){
     curOverall = 0
   }
+  overallsBtns[curOverall].setVisible(true);
+  overallsBtns[oldOverall].setVisible(false);
   setObjVisible(overalls, curOverall, oldOverall)
 }
 

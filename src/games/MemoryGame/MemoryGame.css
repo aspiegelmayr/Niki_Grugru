@@ -1,0 +1,14 @@
+.card {
+    max-height: 150px;
+    max-width: 100px;
+    margin: 5px;
+}
+
+.ingredient {
+    max-height: 65px;
+    position: absolute;
+}
+
+.found {
+    opacity: 0.5;
+}

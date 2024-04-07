@@ -1,0 +1,29 @@
+.shelf {
+    max-height: 100px;
+    width: 300px;
+    position: absolute;
+}
+
+.niki {
+    max-height: 250px;
+    position: absolute;
+}
+
+.paper {
+    max-height: 250px;
+    position: absolute;
+}
+
+.item {
+    max-height: 100px;
+    position: absolute;
+}
+
+.ingredient {
+    max-height: 65px;
+    position: absolute;
+}
+
+.found {
+    opacity: 0.5;
+}

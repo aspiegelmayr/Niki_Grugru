@@ -1,0 +1,48 @@
+.paint-game {
+    background-color: var(--pastel-yellow);
+    height: 100vh;
+}
+
+.content {
+    overflow-y: hidden;
+}
+
+.menu-area {
+    height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.painting-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.paint-select-button {
+    height: 100%;
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 10px;
+    max-height: 50%;
+    background-color: var(--paint-select-background);
+    border: 5px solid var(--text-color-green);
+}
+
+.paint-menu-img {
+    height: 100%;
+}
+
+.canvas {
+    border: 1px solid black;
+    position: absolute; 
+    top: 100px;
+}
+
+.image-overlay {
+    position: relative; 
+    pointer-events: none;
+    bottom: -7em;
+}
+
+.ingame-menu-area {
+    background-color: rebeccapurple;
+}

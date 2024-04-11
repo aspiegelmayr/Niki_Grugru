@@ -10,7 +10,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.content {
+.clothesGameContent {
   top: 100px;
   position: fixed;
 }
@@ -33,11 +33,6 @@ code {
 
 .overallsButton {
   top: -50px;position: relative;left: -400px;
-}
-
-.mainContent {
-  position: absolute;
-  top: 50px;
 }
 
 .mainPage__headerimage {

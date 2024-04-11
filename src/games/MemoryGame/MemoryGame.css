@@ -12,3 +12,11 @@
 .found {
     opacity: 0.5;
 }
+
+.memory-subtitle-text {
+    color: var(--text-color-default);
+}
+
+.memory-header-text {
+    color:var(--text-color-green);
+}

@@ -1,0 +1,9 @@
+:root {
+    /* Define color constants using custom properties */
+    --footer-background-color: #fff4bc;
+    --pastel-yellow: #fff4bc;
+    --text-color-green: #80bc7c;
+    --text-color-default: #000000;
+    --color-light: #ffffff;
+    --paint-select-background: #d8cc8c;
+  }

@@ -1,4 +1,3 @@
-import React from 'react'
 import './App.css'
 import DressUpGame from './games/DressUpGame/DressUpGame'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,6 +10,7 @@ import { Chapters } from './pages/chapters/chapter-constants';
 import ChapterPage from './pages/chapters/ChapterPage';
 import PaintGame from './games/Paint/PaintGame';
 import MagicGame from './games/MagicGame/MagicGame';
+import './colors.css';
 
 function renderChapterItem(){
   const chapterItems: JSX.Element[] = [];
@@ -53,6 +53,7 @@ function App() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    <div className='content'>
     <BrowserRouter>
     <Routes>
     <Route path="chapters" element={<ChapterSelectionPage />}></Route>
@@ -69,6 +70,8 @@ function App() {
       </Route>
     </Routes>
   </BrowserRouter>
+  </div>
+  <div className='footer'>Niki & GruGru</div>
   </div>
   )
 }

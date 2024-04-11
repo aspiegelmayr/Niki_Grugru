@@ -84,12 +84,15 @@ export const VideoSelectionText = {
 
 export const MemoryGameText = {
     TITLE: 'Grugrus Memory',
-    INSTRUCTION: 'Finde die gleichen Berufspaare',
+    SUBTITLE: 'Finde die gleichen Berufspaare',
     LEVELS: {
         LEVEL1: 'Level 1',
         LEVEL2: 'Level 2'
     },
     START: 'Start',
+    LEVEL_1: 'Level 1',
+    LEVEL_2: 'Level 2',
+
     PLAY_AGAIN: 'Nochmal spielen?',
     YES: 'Ja',
     NO: 'Nein'
@@ -98,4 +101,18 @@ export const MemoryGameText = {
 export const ClothesGameText = {
     TITLE: 'Was soll ich anziehen?',
     INSTRUCTION: 'Hilf Niki, das perfekte Outfit zu finden!'
+}
+
+export const MagicGameText = {
+    TITLE: 'Hilf Niki, Zaubertränke zu brauen',
+    LEVEL_1: 'Level 1',
+    LEVEL_2: 'Level 2',
+    START: 'START'
+}
+
+export const PaintGameText = {
+    MENU_TITLE: 'Male deine Lieblingsmoemente von Niki und Grugru',
+    MENU_SUBTITLE: 'Wähle deine Vorlage',
+    BACKGROUND_COLOR_SELECT: 'Wähle deine Hintergrundfarbe',
+    STROKE_COLOR_SELECT: 'W#hle deine Malfarbe'
 }

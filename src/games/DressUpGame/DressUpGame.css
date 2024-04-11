@@ -1,0 +1,157 @@
+.dressup-container {
+    background-color: var(--pastel-yellow);
+    height: 100vh;
+}
+
+.dressup-title {
+    color: var(--text-color-green);
+    margin: auto;
+    display: table;
+}
+
+.dressup-subtitle {
+    color: var(--text-color-default);
+    margin: auto;
+    display: table;
+}
+
+.game-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-height: 68vh;
+}
+
+.character-container {
+    position: relative;
+    width: 80rem;
+    height: auto;
+}
+
+.character {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    max-height: 80vh;
+}
+
+.niki-dressup {
+    position: relative;
+    width: 80%;
+    height: auto;
+}
+
+.top {
+    position: absolute;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    z-index: 3;
+}
+
+.bottom {
+    position: absolute;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    z-index: 2;
+}
+
+.shoes {
+    position: absolute;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    z-index: 1;
+}
+
+.accessory {
+    position: absolute;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hat {
+    position: absolute;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    z-index: 1;
+}
+
+.shoe-button {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 28%;
+    left: 41%;
+    height: 17%;
+    width: 25%;
+}
+
+.hat-button {
+    position: absolute;
+    background: none;
+    border: none;
+    height: 18%;
+    width: 26%;
+    top: 28%;
+    right: 6%;
+}
+
+.accessory-button {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 28%;
+    left: 13%;
+    height: 18%;
+    width: 26%;
+}
+
+.bottom-button {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 47%;
+    right: 6%;
+    height: 47%;
+    width: 26%;
+}
+
+.top-button {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 47%;
+    left: 41%;
+    height: 47%;
+    width: 25%;
+}
+
+.overall-button {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 47%;
+    left: 13%;
+    height: 46%;
+    width: 26%;
+}
+
+.clothes-button-img {
+    max-height: 76%;
+    left: -1%;
+    top: 10%;
+    position: absolute;
+}
+
+.clothes-button-img-small {
+    max-height: 76%;
+    left: 26%;
+    top: 10%;
+    position: absolute;
+}

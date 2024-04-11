@@ -27,3 +27,31 @@
 .found {
     opacity: 0.5;
 }
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.header-text {
+    color:var(--text-color-green);
+}
+
+.button {
+    background-color: var(--text-color-green);
+    color: var(--color-light);
+    padding: 5px 50px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.selected {
+    border: 2px solid green;
+}
+
+.start {
+    font-size: 25px;
+}

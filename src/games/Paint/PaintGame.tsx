@@ -41,18 +41,36 @@ const PaintGame: React.FC = () => {
 
         const startDrawing = (event: MouseEvent) => {
             setIsDrawing(true);
-            const { offsetX, offsetY } = event;
+            const canvas = canvasRef.current;
+            if (!canvas) return;
+        
+            const rect = canvas.getBoundingClientRect();
+            const offsetX = event.clientX - rect.left;
+            const offsetY = event.clientY - rect.top;
+        
+            const context = canvas.getContext('2d');
+            if (!context) return;
+        
             context.beginPath();
             context.moveTo(offsetX, offsetY);
         };
-
+        
         const draw = (event: MouseEvent) => {
             if (!isDrawing) return;
-            const { offsetX, offsetY } = event;
+            const canvas = canvasRef.current;
+            if (!canvas) return;
+        
+            const rect = canvas.getBoundingClientRect();
+            const offsetX = event.clientX - rect.left;
+            const offsetY = event.clientY - rect.top;
+        
+            const context = canvas.getContext('2d');
+            if (!context) return;
+        
             context.lineTo(offsetX, offsetY);
             context.stroke();
-        };
-
+        };        
+        
         const stopDrawing = () => {
             setIsDrawing(false);
         };
@@ -105,6 +123,7 @@ const PaintGame: React.FC = () => {
                         <button style={{ fontSize: "50px", color: 'purple', background: "none", border: "none" }} onClick={() => setColor('purple')}>•</button>
                         <button style={{ fontSize: "50px", color: 'pink', background: "none", border: "none" }} onClick={() => setColor('pink')}>•</button>
                         <button style={{ fontSize: "50px", color: 'black', background: "none", border: "none" }} onClick={() => setColor('black')}>•</button>
+
                         <button onClick={() => deleteStrokes()}>Alles löschen</button>
                         <button onClick={() => setSelectedImage('')}>Anderes Bild wählen</button>
                     </div>
@@ -114,7 +133,7 @@ const PaintGame: React.FC = () => {
                     <h1>{PaintGameText.MENU_TITLE}</h1>
                     <h3>{PaintGameText.MENU_SUBTITLE}</h3>
                     <div className='menu-area'>
-                    <button className='paint-select-button' onClick={() => setSelectedImage(picture1)}>
+                       <button className='paint-select-button' onClick={() => setSelectedImage(picture1)}>
                             <img className='paint-menu-img' src={picture1}></img>
                         </button>
                         <button className='paint-select-button' onClick={() => setSelectedImage(picture2)}>
@@ -132,6 +151,7 @@ const PaintGame: React.FC = () => {
                         <button className='paint-select-button' onClick={() => setSelectedImage(picture6)}>
                             <img className='paint-menu-img' src={picture6}></img>
                         </button>
+
                     </div>
                 </div>
             }
@@ -140,4 +160,3 @@ const PaintGame: React.FC = () => {
 };
 
 export default PaintGame;
-

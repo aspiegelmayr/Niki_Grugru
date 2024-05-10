@@ -13,6 +13,7 @@ const PaintGame: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [isDrawing, setIsDrawing] = useState<boolean>(false);
     const [strokeColor, setStrokeColor] = useState<string>('red');
+    const [bgColor, setBgColor] = useState<string>('white');
     const [selectedImage, setSelectedImage] = useState<string>('');
 
     useEffect(() => {
@@ -46,34 +47,34 @@ const PaintGame: React.FC = () => {
             setIsDrawing(true);
             const canvas = canvasRef.current;
             if (!canvas) return;
-        
+
             const rect = canvas.getBoundingClientRect();
             const offsetX = event.clientX - rect.left;
             const offsetY = event.clientY - rect.top;
-        
+
             const context = canvas.getContext('2d');
             if (!context) return;
-        
+
             context.beginPath();
             context.moveTo(offsetX, offsetY);
         };
-        
+
         const draw = (event: MouseEvent) => {
             if (!isDrawing) return;
             const canvas = canvasRef.current;
             if (!canvas) return;
-        
+
             const rect = canvas.getBoundingClientRect();
             const offsetX = event.clientX - rect.left;
             const offsetY = event.clientY - rect.top;
-        
+
             const context = canvas.getContext('2d');
             if (!context) return;
-        
+
             context.lineTo(offsetX, offsetY);
             context.stroke();
-        };        
-        
+        };
+
         const stopDrawing = () => {
             setIsDrawing(false);
         };
@@ -106,6 +107,23 @@ const PaintGame: React.FC = () => {
         context.clearRect(0, 0, canvas.width, canvas.height);
     };
 
+    function renderBgButtons() {
+        const backgroundColors: string[] = [];
+        for (let i = 1; i <= 24; i++) {
+            backgroundColors.push(`var(--paint-game-bg-${i})`);
+        }
+        const buttons = [];
+        for (let i = 0; i < 24; i++) {
+            buttons.push(
+                <button key={i} className='ingame-menu-area__background-pick__color-button' style={{ backgroundColor: backgroundColors[i] }} onClick={() => setBgColor(backgroundColors[i])}></button>
+            );
+            if (i === 11) {
+                buttons.push(<br key="br" />);
+            }
+        }
+        return buttons;
+    }    
+
     return (
         <div>
             {selectedImage ?
@@ -116,8 +134,9 @@ const PaintGame: React.FC = () => {
                             width={600}
                             height={500}
                             className='canvas'
+                            style={{backgroundColor: bgColor}}
                         />
-                         <img
+                        <img
                             src={selectedImage}
                             alt="Overlay Image"
                             className='image-overlay'
@@ -126,18 +145,19 @@ const PaintGame: React.FC = () => {
 
                     </div>
                     <div className='ingame-menu-area'>
-                    <ColorPicker color={strokeColor} onChange={color => setColor(color.hex)} />
-                        <button style={{ fontSize: "50px", color: 'red', background: "none", border: "none" }} onClick={() => setColor('red')}>•</button>
-                        <button style={{ fontSize: "50px", color: 'orange', background: "none", border: "none" }} onClick={() => setColor('orange')}>•</button>
-                        <button style={{ fontSize: "50px", color: 'yellow', background: "none", border: "none" }} onClick={() => setColor('yellow')}>•</button>
-                        <button style={{ fontSize: "50px", color: 'green', background: "none", border: "none" }} onClick={() => setColor('green')}>•</button>
-                        <button style={{ fontSize: "50px", color: 'blue', background: "none", border: "none" }} onClick={() => setColor('blue')}>•</button>
-                        <button style={{ fontSize: "50px", color: 'purple', background: "none", border: "none" }} onClick={() => setColor('purple')}>•</button>
-                        <button style={{ fontSize: "50px", color: 'pink', background: "none", border: "none" }} onClick={() => setColor('pink')}>•</button>
-                        <button style={{ fontSize: "50px", color: 'black', background: "none", border: "none" }} onClick={() => setColor('black')}>•</button>
+                        <div className='ingame-menu-area__background-pick'>
+                            <h3 className='color-select-title'>{PaintGameText.BACKGROUND_COLOR_SELECT}</h3>
+                            <div className='ingame-menu-area__background-pick__color-select'>
+                                {renderBgButtons()}
+                            </div>
+                        </div>
+                        <div className='ingame-menu-area__stroke-color-pick'>
+                            <h3 className='color-select-title'>{PaintGameText.STROKE_COLOR_SELECT}</h3>
+                            <ColorPicker color={strokeColor} onChange={color => setColor(color.hex)} hideAlpha hideInputs />
 
-                        <button onClick={() => deleteStrokes()}>Alles löschen</button>
-                        <button onClick={() => setSelectedImage('')}>Anderes Bild wählen</button>
+                            <button onClick={() => deleteStrokes()}>Alles löschen</button>
+                            <button onClick={() => setSelectedImage('')}>Anderes Bild wählen</button>
+                        </div>
                     </div>
                 </div>
                 :
@@ -145,7 +165,7 @@ const PaintGame: React.FC = () => {
                     <h1>{PaintGameText.MENU_TITLE}</h1>
                     <h3>{PaintGameText.MENU_SUBTITLE}</h3>
                     <div className='menu-area'>
-                       <button className='paint-select-button' onClick={() => setSelectedImage(picture1)}>
+                        <button className='paint-select-button' onClick={() => setSelectedImage(picture1)}>
                             <img className='paint-menu-img' src={picture1}></img>
                         </button>
                         <button className='paint-select-button' onClick={() => setSelectedImage(picture2)}>

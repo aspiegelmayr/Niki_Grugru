@@ -109,5 +109,5 @@ export const PaintGameText = {
     MENU_TITLE: 'Male deine Lieblingsmoemente von Niki und Grugru',
     MENU_SUBTITLE: 'Wähle deine Vorlage',
     BACKGROUND_COLOR_SELECT: 'Wähle deine Hintergrundfarbe',
-    STROKE_COLOR_SELECT: 'W#hle deine Malfarbe'
+    STROKE_COLOR_SELECT: 'Wähle deine Malfarbe'
 }

@@ -60,3 +60,20 @@
     background-color: rgb(255, 191, 212);
     width: 40%;
 }
+
+.color-select-title {
+    font-family: 'Schoolbell';
+    color: var(--text-color-green);
+}
+
+.ingame-menu-area__background-pick__color-select {
+    background-color: var(--pastel-yellow);
+}
+
+.ingame-menu-area__background-pick__color-button {
+    position: relative;
+    height: 25px;
+    width: 25px;
+    border: 1px solid gray;
+    margin: 4px;
+}

@@ -7,12 +7,14 @@
     color: var(--text-color-green);
     margin: auto;
     display: table;
+    font-family: 'Schoolbell';
 }
 
 .dressup-subtitle {
     color: var(--text-color-default);
     margin: auto;
     display: table;
+    font-family: 'Poppins';
 }
 
 .game-container {

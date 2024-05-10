@@ -6,4 +6,28 @@
     --text-color-default: #000000;
     --color-light: #ffffff;
     --paint-select-background: #d8cc8c;
-  }
+    --paint-game-bg-1: #b9dbb9;
+    --paint-game-bg-2: #fbf4c2;
+    --paint-game-bg-3: #f5cad1;
+    --paint-game-bg-4: #accbd0;
+    --paint-game-bg-5: #abbc7d;
+    --paint-game-bg-6: #acbdc9;
+    --paint-game-bg-7: #b2dbcd;
+    --paint-game-bg-8: #e6f1dc;
+    --paint-game-bg-9: #ec9986;
+    --paint-game-bg-10: #f3f19a;
+    --paint-game-bg-11:#db6c9f;
+    --paint-game-bg-12: #ee9a4c;
+    --paint-game-bg-13: #f6d83c;
+    --paint-game-bg-14: #e3683b;
+    --paint-game-bg-15: #5987b9;
+    --paint-game-bg-16: #ab8ab3;
+    --paint-game-bg-17: #3ea5d0;
+    --paint-game-bg-18: #2e5394;
+    --paint-game-bg-19: #2c9367;
+    --paint-game-bg-20: #40ab48;
+    --paint-game-bg-21: #d9de2f;
+    --paint-game-bg-22: #8a417a;
+    --paint-game-bg-23: #363f77;
+    --paint-game-bg-24: #66bc98;
+}

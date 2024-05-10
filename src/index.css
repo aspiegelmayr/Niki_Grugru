@@ -4,6 +4,7 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins';
 }
 
 code {
@@ -44,6 +45,7 @@ code {
   text-align: justify;
   max-width: 50%;
   margin: auto;
+  font-family: 'Poppins';
 }
 
 .mainPage__audiobookcover {

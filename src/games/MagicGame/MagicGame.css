@@ -1,21 +1,31 @@
+.magicGame__container {
+    top: 100px;
+    background-color: var(--pastel-yellow);
+}
+
 .shelf {
     max-height: 100px;
-    width: 300px;
+    width: 20vw;
     position: absolute;
 }
 
 .niki {
-    max-height: 250px;
+    max-height: 500px;
+    height: 65vh;
     position: absolute;
+    left: 42%; 
+    bottom: 0%;
 }
 
 .paper {
     max-height: 250px;
     position: absolute;
+    left: 76%;
+    top: 55%;
 }
 
 .item {
-    max-height: 100px;
+    max-height: 7vw;
     position: absolute;
 }
 
@@ -37,6 +47,7 @@
 
 .header-text {
     color:var(--text-color-green);
+    font-family: 'Schoolbell';
 }
 
 .button {
@@ -46,6 +57,7 @@
     margin: 10px;
     border: none;
     border-radius: 5px;
+    font-family: 'Poppins';
 }
 
 .selected {
@@ -54,4 +66,178 @@
 
 .start {
     font-size: 25px;
+}
+
+.magicGame__line {
+    position: relative;
+    width: 4px;
+    height: 100vh;
+    background-color: brown;
+    left: 70%;
+}
+
+.shelf1 {
+    left: 46%;
+    top: 20%;
+}
+
+.shelf2 {
+    left: 24%;
+    top: 16%;
+}
+
+.shelf3 {
+    left: 2%;
+    top: 20%;
+}
+
+.shelf4 {
+    left: 4%;
+    top: 36%;
+}
+
+.shelf5 {
+    left: 30%;
+    top: 33%;
+}
+
+.shelf6 {
+    left: 27%;
+    top: 50%;
+}
+
+.shelf7 {
+    left: 3%;
+    top: 54%;
+}
+
+.shelf8 {
+    left: 24%;
+    top: 65%;
+}
+
+.shelf9 {
+    left: 1%;
+    top: 71%;
+}
+
+.shelf10 {
+    left: 16%;
+    top: 87%;
+}
+
+.item1 {
+    left: 5%;
+    top: 14%;
+}
+
+.item2 {
+    left: 15%;
+    top: 14%;
+}
+
+.item3 {
+    top: 10%;
+    left: 27%;
+}
+
+.item4 {
+    top: 10%;
+    left: 36%;
+}
+
+.item5 {
+    top: 14%;
+    left: 49%;
+}
+
+.item6 {
+    top: 14%;
+    left: 57%;
+}
+
+.item7 {
+    top: 30%;
+    left: 6%;
+}
+
+.item8{
+    top: 30%;
+    left: 15%;
+}
+
+.item9 {
+    top: 27%;
+    left: 32%;
+}
+
+.item10 {
+    top: 27%;
+    left: 41%;
+}
+
+.item11 {
+    top: 48%;
+    left: 7%;
+}
+
+.item12 {
+    top: 48%;
+    left: 15%;
+}
+
+.item13 {
+    top: 44%;
+    left: 29%;
+}
+
+.item14 {
+    top: 44%;
+    left: 38%;
+}
+
+.item15 {
+    top: 65%;
+    left: 4%;
+}
+
+.item16 {
+    top: 65%;
+    left: 12%;
+}
+
+.item17 {
+    top: 59%;
+    left: 28%;
+}
+
+.item18 {
+    top: 59%;
+    left: 36%;
+}
+
+.item19 {
+    top: 81%;
+    left: 20%;
+}
+
+.item20 {
+    top: 81%;
+    left: 27%;
+}
+
+.magicGame__instructions {
+    left: 77%;
+    top: 11%;
+    position: absolute;
+    font-family: 'Schoolbell';
+    color: var(--text-color-green);
+    font-size: 23px;
+}
+
+.potion-image {
+    height: 24vh;
+    position: absolute;
+    left: 79%;
+    top: 28%;
 }

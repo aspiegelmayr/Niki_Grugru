@@ -15,8 +15,10 @@
 
 .memory-subtitle-text {
     color: var(--text-color-default);
+    font-family: 'Poppins';
 }
 
 .memory-header-text {
     color:var(--text-color-green);
+    font-family: 'Schoolbell';
 }

@@ -1,18 +1,35 @@
 import React, { useRef, useEffect, useState } from 'react';
+import './PaintGame.css';
+import { PaintGameText } from '../../text-constants';
 import picture1 from '../../assets/PaintingGame/picture1_paintable.png'
 import picture2 from '../../assets/PaintingGame/picture2_paintable.png'
 import picture3 from '../../assets/PaintingGame/picture3_paintable.png'
 import picture4 from '../../assets/PaintingGame/picture4_paintable.png'
 import picture5 from '../../assets/PaintingGame/picture5_paintable.png'
 import picture6 from '../../assets/PaintingGame/picture6_paintable.png'
-import './PaintGame.css';
-import { PaintGameText } from '../../text-constants';
 
 const PaintGame: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [isDrawing, setIsDrawing] = useState<boolean>(false);
     const [strokeColor, setStrokeColor] = useState<string>('red');
     const [selectedImage, setSelectedImage] = useState<string>('');
+
+    useEffect(() => {
+        initializeCanvas();
+    }, [selectedImage]); // Run useEffect again when selectedImage changes
+
+    const initializeCanvas = () => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+
+        const context = canvas.getContext('2d');
+        if (!context) return;
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.beginPath();
+        context.strokeStyle = strokeColor;
+        context.lineWidth = 3; // Set your desired line width
+    };
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -31,7 +48,6 @@ const PaintGame: React.FC = () => {
 
         const draw = (event: MouseEvent) => {
             if (!isDrawing) return;
-            context.strokeStyle = strokeColor;
             const { offsetX, offsetY } = event;
             context.lineTo(offsetX, offsetY);
             context.stroke();
@@ -52,7 +68,7 @@ const PaintGame: React.FC = () => {
             canvas.removeEventListener('mouseup', stopDrawing);
             canvas.removeEventListener('mouseout', stopDrawing);
         };
-    }, [isDrawing]);
+    }, [isDrawing, strokeColor, selectedImage]); // Include selectedImage in the dependencies array
 
     function setColor(color: string) {
         setStrokeColor(color);
@@ -72,18 +88,12 @@ const PaintGame: React.FC = () => {
         <div>
             {selectedImage ?
                 <div className='painting-area'>
-                    <div style={{ position: 'absolute', top: "50px", left: "25%" }}>
+                    <div className='canvas-container'>
                         <canvas
                             ref={canvasRef}
                             width={600}
                             height={500}
                             className='canvas'
-                        />
-                        <img
-                            src={selectedImage}
-                            alt="Overlay Image"
-                            className='image-overlay'
-                            width={520}
                         />
                     </div>
                     <div className='ingame-menu-area'>
@@ -104,7 +114,7 @@ const PaintGame: React.FC = () => {
                     <h1>{PaintGameText.MENU_TITLE}</h1>
                     <h3>{PaintGameText.MENU_SUBTITLE}</h3>
                     <div className='menu-area'>
-                        <button className='paint-select-button' onClick={() => setSelectedImage(picture1)}>
+                    <button className='paint-select-button' onClick={() => setSelectedImage(picture1)}>
                             <img className='paint-menu-img' src={picture1}></img>
                         </button>
                         <button className='paint-select-button' onClick={() => setSelectedImage(picture2)}>
@@ -130,3 +140,4 @@ const PaintGame: React.FC = () => {
 };
 
 export default PaintGame;
+

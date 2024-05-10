@@ -150,6 +150,8 @@ const PaintGame: React.FC = () => {
                             <div className='ingame-menu-area__background-pick__color-select'>
                                 {renderBgButtons()}
                             </div>
+                            <br/>
+                            <br/>
                         </div>
                         <div className='ingame-menu-area__stroke-color-pick'>
                             <h3 className='color-select-title'>{PaintGameText.STROKE_COLOR_SELECT}</h3>

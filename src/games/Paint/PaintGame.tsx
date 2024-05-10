@@ -7,6 +7,7 @@ import picture3 from '../../assets/PaintingGame/picture3_paintable.png'
 import picture4 from '../../assets/PaintingGame/picture4_paintable.png'
 import picture5 from '../../assets/PaintingGame/picture5_paintable.png'
 import picture6 from '../../assets/PaintingGame/picture6_paintable.png'
+import ColorPicker from 'react-pick-color';
 
 const PaintGame: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -28,7 +29,7 @@ const PaintGame: React.FC = () => {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.beginPath();
         context.strokeStyle = strokeColor;
-        context.lineWidth = 3; // Set your desired line width
+        context.lineWidth = 3;
     };
 
     useEffect(() => {
@@ -38,8 +39,10 @@ const PaintGame: React.FC = () => {
         const context = canvas.getContext('2d');
 
         if (!context) return;
+        context.strokeStyle = strokeColor;
 
         const startDrawing = (event: MouseEvent) => {
+            console.log(strokeColor);
             setIsDrawing(true);
             const canvas = canvasRef.current;
             if (!canvas) return;
@@ -89,6 +92,7 @@ const PaintGame: React.FC = () => {
     }, [isDrawing, strokeColor, selectedImage]); // Include selectedImage in the dependencies array
 
     function setColor(color: string) {
+        console.log("strokecolor changer");
         setStrokeColor(color);
     }
 
@@ -113,8 +117,16 @@ const PaintGame: React.FC = () => {
                             height={500}
                             className='canvas'
                         />
+                         <img
+                            src={selectedImage}
+                            alt="Overlay Image"
+                            className='image-overlay'
+                            width={500}
+                        />
+
                     </div>
                     <div className='ingame-menu-area'>
+                    <ColorPicker color={strokeColor} onChange={color => setColor(color.hex)} />
                         <button style={{ fontSize: "50px", color: 'red', background: "none", border: "none" }} onClick={() => setColor('red')}>•</button>
                         <button style={{ fontSize: "50px", color: 'orange', background: "none", border: "none" }} onClick={() => setColor('orange')}>•</button>
                         <button style={{ fontSize: "50px", color: 'yellow', background: "none", border: "none" }} onClick={() => setColor('yellow')}>•</button>

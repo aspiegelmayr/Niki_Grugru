@@ -1,7 +1,14 @@
+.memory-game-container {
+   position: absolute;
+   background-color: var(--pastel-yellow);
+   width: 100vw;
+}
+
 .card {
     max-height: 150px;
     max-width: 100px;
     margin: 5px;
+    position: absolute;
 }
 
 .ingredient {
@@ -16,9 +23,33 @@
 .memory-subtitle-text {
     color: var(--text-color-default);
     font-family: 'Poppins';
+    font-size: 23px;
 }
 
 .memory-header-text {
     color:var(--text-color-green);
     font-family: 'Schoolbell';
+}
+
+.cards-container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.memory__newGame-button {
+    top: 14%;
+    left: 60%;
+    position: fixed;
+    background-color: var(--text-color-green);
+    color: white;
+    font-family: 'Poppins';
+    border: none;
+    height: 40px;
+    width: 200px;
+}
+
+.start {
+    height: 200px;
+    left: 25%;
+    position: relative;
 }

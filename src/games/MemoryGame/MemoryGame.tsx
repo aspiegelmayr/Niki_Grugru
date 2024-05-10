@@ -21,6 +21,30 @@ const MemoryGame: React.FunctionComponent = () => {
   const [flippedCards, setFlippedCards] = React.useState<boolean[]>(new Array(20).fill(false));
   const [preselectedDifficulty, setPreselectedDifficulty] = React.useState<string>('');
 
+  const cardCoordinates = [
+    ['47%', "33%"],
+    ['90%', "47%"],
+    ['87%', "23%"],
+    ['25%', "12%"],
+    ['13%', "15%"],
+    ['63%', "52%"],
+    ['71%', "16%"],
+    ['5%', "40%"],
+    ['1%', "21%"],
+    ['72%', "34%"],
+    ['38%', "16%"],
+    ['17%', "33%"],
+    ['32%', "35%"],
+    ['54%', "11%"],
+    ['18%', "52%"],
+    ['30%', "53%"],
+    ['84%', "3%"],
+    ['45%', "50%"],
+    ['77%', "53%"],
+    ['59%', "31%"],
+    ['27%', "4%"]
+  ];
+
   React.useEffect(() => {
     shuffleImages();
     if (difficulty === 'easy') {
@@ -70,7 +94,7 @@ const MemoryGame: React.FunctionComponent = () => {
       setClickedCardIndex(index);
     }
 
-    if(difficulty === 'hard'){
+    if (difficulty === 'hard') {
       const newFlippedCards = [...flippedCards];
       newFlippedCards[index] = !newFlippedCards[index];
       setFlippedCards(newFlippedCards);
@@ -88,54 +112,34 @@ const MemoryGame: React.FunctionComponent = () => {
   return (
     <div>
       {difficulty ? (
-        <div style={{ top: "100px", position: "absolute", left: "25%" }}>
+        <div className='memory-game-container'>
           <h1 className='header-text'>{MemoryGameText.TITLE}</h1>
-          <h1 className='header-text'>{MemoryGameText.SUBTITLE}</h1>
-          <div style={{ display: "flex", flexDirection: "row", alignContent: "space-between" }}>
-            {shuffledImages.slice(0, 7).map((image, index) => (
+          <h1 className='memory-subtitle-text'>{MemoryGameText.SUBTITLE}</h1>
+          <div className='cards-container'>
+            {shuffledImages.map((image, index) => (
               <img
                 key={index}
                 className={`card ${foundItems.includes(image) ? 'found' : ''}`}
                 src={flippedCards[index] ? image : cardBack.file}
                 onClick={() => selectItem(index)}
+                style={{ position: 'absolute', left: cardCoordinates[index][0], top: cardCoordinates[index][1] }}
               />
             ))}
           </div>
-
-          <div style={{ display: "flex", flexDirection: "row" }}>
-            {shuffledImages.slice(7, 14).map((image, index) => (
-              <img
-                key={index}
-                className={`card ${foundItems.includes(image) ? 'found' : ''}`}
-                src={flippedCards[index + 7] ? image : cardBack.file}
-                onClick={() => selectItem(index + 7)}
-              />
-            ))}
-          </div>
-
-          <div style={{ display: "flex", flexDirection: "row" }}>
-            {shuffledImages.slice(14, 20).map((image, index) => (
-              <img
-                key={index}
-                className={`card ${foundItems.includes(image) ? 'found' : ''}`}
-                src={flippedCards[index + 14] ? image : cardBack.file}
-                onClick={() => selectItem(index + 14)}
-              />
-            ))}
-          </div>
-
-          <button style={{ top: "90%", left: "30px", position: "fixed" }} onClick={restartGame}>Neues Spiel</button>
+          <button className='memory__newGame-button' onClick={restartGame}>Neues Spiel</button>
         </div>
       ) : (
-        <div className='header'>
-          <div>
-            <h1 className='memory-header-text'>{MemoryGameText.TITLE}</h1>
-            <h3 className='memory-subtitle-text'>{MemoryGameText.SUBTITLE}</h3>
+        <div className='memory-game-container'>
+          <div className='header'>
             <div>
-              <button className={preselectedDifficulty === 'easy' ? 'button selected' : 'button'} onClick={() => setPreselectedDifficulty('easy')}>{MemoryGameText.LEVEL_1}</button>
-              <button className={preselectedDifficulty === 'hard' ? 'button selected' : 'button'} onClick={() => setPreselectedDifficulty('hard')}>{MemoryGameText.LEVEL_2}</button>
+              <h1 className='memory-header-text'>{MemoryGameText.TITLE}</h1>
+              <h3 className='memory-subtitle-text'>{MemoryGameText.SUBTITLE}</h3>
+              <div>
+                <button className={preselectedDifficulty === 'easy' ? 'button selected' : 'button'} onClick={() => setPreselectedDifficulty('easy')}>{MemoryGameText.LEVEL_1}</button>
+                <button className={preselectedDifficulty === 'hard' ? 'button selected' : 'button'} onClick={() => setPreselectedDifficulty('hard')}>{MemoryGameText.LEVEL_2}</button>
+              </div>
+              <button className='button start' onClick={() => setDifficulty(preselectedDifficulty)}>{MemoryGameText.START}</button>
             </div>
-            <button className='button start' onClick={() => setDifficulty(preselectedDifficulty)}>{MemoryGameText.START}</button>
           </div>
         </div>
       )}

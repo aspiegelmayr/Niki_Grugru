@@ -132,7 +132,7 @@ const MemoryGame: React.FunctionComponent = () => {
         <div className='memory-game-container'>
           <div className='header'>
             <div>
-              <h1 className='memory-header-text'>{MemoryGameText.TITLE}</h1>
+              <h1 className='greenHeaderText'>{MemoryGameText.TITLE}</h1>
               <h3 className='memory-subtitle-text'>{MemoryGameText.SUBTITLE}</h3>
               <div>
                 <button className={preselectedDifficulty === 'easy' ? 'button selected' : 'button'} onClick={() => setPreselectedDifficulty('easy')}>{MemoryGameText.LEVEL_1}</button>

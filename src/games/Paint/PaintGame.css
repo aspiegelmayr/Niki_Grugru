@@ -6,6 +6,7 @@
 .paintgame-container {
     position: relative;
     height: 100vh;
+    background-color: var(--pastel-yellow);
 }
 
 .content {
@@ -60,11 +61,6 @@
     width: 40%;
 }
 
-.color-select-title {
-    font-family: 'Schoolbell';
-    color: var(--text-color-green);
-}
-
 .ingame-menu-area__background-pick__color-select {
     background-color: var(--pastel-yellow);
 }
@@ -75,4 +71,12 @@
     width: 25px;
     border: 1px solid gray;
     margin: 4px;
+}
+
+.paintGame__ingameMenuButton {
+    background-color: var(--text-color-green);
+    color: white;
+    border: none;
+    margin: 2px;
+    font-family: 'Poppins';
 }

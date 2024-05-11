@@ -112,7 +112,7 @@ const MagicGame: React.FunctionComponent = () => {
 
           <img className='paper' src={paper}></img>
           <img className='potion-image' src={potion}></img>
-          <p className='magicGame__instructions'>{MagicGameText.INSTRUCTIONS}</p>
+          <p className='magicGame__instructions greenHeaderText'>{MagicGameText.INSTRUCTIONS}</p>
 
 
         <img className={`ingredient ${foundItems.includes(ingredients[0]) ? 'found' : ''}`} src={ingredients[0]} style={{left: "82%", top: "59%"}}></img>
@@ -161,16 +161,18 @@ const MagicGame: React.FunctionComponent = () => {
         <button style={{top:"90%", left:"30px", position: "fixed"}} onClick={restartGame}>Neues Spiel</button>
       </div>
       ) : (
+        <div className='magicGame__container'>
         <div className='header'>
             <img src={niki} style={{height: "80%"}}></img>
             <div>
-                <h1 className='header-text'>{MagicGameText.TITLE}</h1>
+                <h1 className='greenHeaderText'>{MagicGameText.TITLE}</h1>
                 <div>
                     <button className={preselectedDifficulty === 'easy' ? 'button selected' : 'button'} onClick={() => setPreselectedDifficulty('easy')}>{MagicGameText.LEVEL_1}</button>
                     <button className={preselectedDifficulty === 'hard' ? 'button selected' : 'button'} onClick={() => setPreselectedDifficulty('hard')}>{MagicGameText.LEVEL_2}</button>
                 </div>
                 <button className='button start' onClick={() => setDifficulty(preselectedDifficulty)}>{MagicGameText.START}</button>
             </div>
+        </div>
         </div>
       )}
     </div>

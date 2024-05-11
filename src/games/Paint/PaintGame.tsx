@@ -146,7 +146,7 @@ const PaintGame: React.FC = () => {
                     </div>
                     <div className='ingame-menu-area'>
                         <div className='ingame-menu-area__background-pick'>
-                            <h3 className='color-select-title'>{PaintGameText.BACKGROUND_COLOR_SELECT}</h3>
+                            <h3 className='greenHeaderText'>{PaintGameText.BACKGROUND_COLOR_SELECT}</h3>
                             <div className='ingame-menu-area__background-pick__color-select'>
                                 {renderBgButtons()}
                             </div>
@@ -154,11 +154,11 @@ const PaintGame: React.FC = () => {
                             <br/>
                         </div>
                         <div className='ingame-menu-area__stroke-color-pick'>
-                            <h3 className='color-select-title'>{PaintGameText.STROKE_COLOR_SELECT}</h3>
+                            <h3 className='greenHeaderText'>{PaintGameText.STROKE_COLOR_SELECT}</h3>
                             <ColorPicker color={strokeColor} onChange={color => setColor(color.hex)} hideAlpha hideInputs />
 
-                            <button onClick={() => deleteStrokes()}>Alles löschen</button>
-                            <button onClick={() => setSelectedImage('')}>Anderes Bild wählen</button>
+                            <button className='paintGame__ingameMenuButton' onClick={() => deleteStrokes()}>Alles löschen</button>
+                            <button className='paintGame__ingameMenuButton' onClick={() => setSelectedImage('')}>Anderes Bild wählen</button>
                         </div>
                     </div>
                 </div>

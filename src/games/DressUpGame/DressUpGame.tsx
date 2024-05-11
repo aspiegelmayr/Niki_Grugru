@@ -67,7 +67,7 @@ const DressUpGame: React.FunctionComponent = () => {
 
     return (
         <div className='dressup-container'>
-            <h1 className='dressup-title'>{ClothesGameText.TITLE}</h1>
+            <h1 className='greenHeaderText dressup-title'>{ClothesGameText.TITLE}</h1>
             <h3 className='dressup-subtitle'>{ClothesGameText.INSTRUCTION}</h3>
 
             <div className="game-container">

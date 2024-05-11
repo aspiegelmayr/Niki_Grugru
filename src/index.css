@@ -46,9 +46,21 @@ code {
   max-width: 50%;
   margin: auto;
   font-family: 'Poppins';
+  font-weight: 200;
+}
+
+.mainPage__header {
+  font-weight: bold;
 }
 
 .mainPage__audiobookcover {
   max-width: 300px;
   margin-top: 10px;
+}
+
+.greenHeaderText {
+    font-family: 'Schoolbell';
+    color: var(--text-color-green);
+    font-size: 36px;
+    font-weight: bold;
 }

@@ -1,0 +1,23 @@
+.animation-game-container {
+    display: flex;
+    justify-content: center;
+}
+
+.chapterPage__button {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    background: none;
+    border: none;
+    text-decoration: none;
+
+    &:hover {
+        cursor: pointer;
+        color: var(--text-color-green);
+    }
+}
+
+.chapterPage__buttonImg {
+    height: 200px;
+    width: 200px;
+}

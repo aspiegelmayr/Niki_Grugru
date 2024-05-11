@@ -13,7 +13,7 @@ function MainPage() {
     <div className='mainContent'>
       <div><img src={headerImg} className='mainPage__headerimage'></img></div>
       <div className='mainPage__about'>
-        <h1>{MainPageText.ABOUT_HEADER_TEXT}</h1>
+        <h1 className='mainPage__header'>{MainPageText.ABOUT_HEADER_TEXT}</h1>
         {formatText(MainPageText.ABOUT_TEXT).map((line, index) => (
         <p key={index}>{line}</p>
       ))}

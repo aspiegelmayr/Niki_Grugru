@@ -4,10 +4,8 @@
 }
 
 .dressup-title {
-    color: var(--text-color-green);
     margin: auto;
     display: table;
-    font-family: 'Schoolbell';
 }
 
 .dressup-subtitle {

@@ -4,11 +4,11 @@
    width: 100vw;
 }
 
-.card {
+.memory-card {
     max-height: 150px;
     max-width: 100px;
-    margin: 5px;
     position: absolute;
+    border-radius: 16px;
 }
 
 .ingredient {

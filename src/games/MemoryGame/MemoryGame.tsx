@@ -1,14 +1,14 @@
 import * as React from 'react';
-import chef from "../../assets/Memory/jobs/chef.png";
-import chemist from "../../assets/Memory/jobs/chemist.png";
-import firefighter from "../../assets/Memory/jobs/firefighter.png";
-import gardener from "../../assets/Memory/jobs/gardener.png";
-import librarian from "../../assets/Memory/jobs/librarian.png";
-import mechanic from "../../assets/Memory/jobs/mechanic.png";
-import musician from "../../assets/Memory/jobs/musician.png";
-import painter from "../../assets/Memory/jobs/painter.png";
-import teacher from "../../assets/Memory/jobs/teacher.png";
-import vet from "../../assets/Memory/jobs/vet.png";
+import chef from "../../assets/Memory/cards/chef.png";
+import chemist from "../../assets/Memory/cards/chemist.png";
+import firefighter from "../../assets/Memory/cards/firefighter.png";
+import gardener from "../../assets/Memory/cards/gardener.png";
+import librarian from "../../assets/Memory/cards/librarian.png";
+import mechanic from "../../assets/Memory/cards/mechanic.png";
+import musician from "../../assets/Memory/cards/musician.png";
+import painter from "../../assets/Memory/cards/painter.png";
+import teacher from "../../assets/Memory/cards/teacher.png";
+import vet from "../../assets/Memory/cards/vet.png";
 import './MemoryGame.css'
 import { MemoryGameText } from '../../text-constants';
 import { cardBack } from './MemoryGameAssets';
@@ -22,26 +22,26 @@ const MemoryGame: React.FunctionComponent = () => {
   const [preselectedDifficulty, setPreselectedDifficulty] = React.useState<string>('');
 
   const cardCoordinates = [
-    ['47%', "33%"],
-    ['90%', "47%"],
-    ['87%', "23%"],
+    ['43%', "33%"],
+    ['80%', "53%"],
+    ['80%', "31%"],
     ['25%', "12%"],
     ['13%', "15%"],
-    ['63%', "52%"],
-    ['71%', "16%"],
-    ['5%', "40%"],
+    ['57%', "52%"],
+    ['68%', "13%"],
+    ['80%', "8%"],
     ['1%', "21%"],
-    ['72%', "34%"],
-    ['38%', "16%"],
-    ['17%', "33%"],
+    ['69%', "34%"],
+    ['36%', "14%"],
+    ['17%', "34%"],
     ['32%', "35%"],
-    ['54%', "11%"],
-    ['18%', "52%"],
-    ['30%', "53%"],
-    ['84%', "3%"],
-    ['45%', "50%"],
-    ['77%', "53%"],
-    ['59%', "31%"],
+    ['47%', "11%"],
+    ['18%', "54%"],
+    ['30%', "55%"],
+    ['5%', "46%"],
+    ['45%', "53%"],
+    ['69%', "55%"],
+    ['57%', "27%"],
     ['27%', "4%"]
   ];
 
@@ -117,13 +117,22 @@ const MemoryGame: React.FunctionComponent = () => {
           <h1 className='memory-subtitle-text'>{MemoryGameText.SUBTITLE}</h1>
           <div className='cards-container'>
             {shuffledImages.map((image, index) => (
-              <img
+              <div>
+                <img
                 key={index}
-                className={`card ${foundItems.includes(image) ? 'found' : ''}`}
-                src={flippedCards[index] ? image : cardBack.file}
+                className={`memory-card`}
+                src={cardBack.file}
                 onClick={() => selectItem(index)}
                 style={{ position: 'absolute', left: cardCoordinates[index][0], top: cardCoordinates[index][1] }}
               />
+              <img
+                key={index}
+                className={`memory-card ${foundItems.includes(image) ? 'found' : ''}`}
+                src={flippedCards[index] ? image : ''}
+                onClick={() => selectItem(index)}
+                style={{ position: 'absolute', left: cardCoordinates[index][0], top: cardCoordinates[index][1] }}
+              />
+              </div>
             ))}
           </div>
           <button className='memory__newGame-button' onClick={restartGame}>Neues Spiel</button>

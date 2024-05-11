@@ -1,4 +1,4 @@
-import cardBackImg from "../../assets/Memory/cards/card_base_gone.png"
+import cardBackImg from "../../assets/Memory/cards/card_base.png"
 import chef from "../../assets/Memory/cards/chef.png"
 import chemist from "../../assets/Memory/cards/chemist.png"
 import firefighter from "../../assets/Memory/cards/firefighter.png"

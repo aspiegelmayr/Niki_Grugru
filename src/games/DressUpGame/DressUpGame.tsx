@@ -76,7 +76,7 @@ const DressUpGame: React.FunctionComponent = () => {
                     <button className='hat-button' onClick={() => setNextItem('hat')}>
                         {hat < hatsOnNiki.length - 1 && <img className='clothes-button-img-small' src={hatsOnNiki[hat + 1].displayImage} />}
                     </button>
-                    <button className='shoe-button' onClick={() => setNextItem('shoes')}>
+                    <button className='shoe-button' onClick={() => setNextItem('shoes')} style={{top: '30%'}}>
                         {shoes < shoesOnNiki.length - 1 && <img className='clothes-button-img-small' src={shoesOnNiki[shoes + 1].displayImage} />}
                     </button>
                     <button className='accessory-button' onClick={() => setNextItem('accessory')}>
@@ -88,7 +88,7 @@ const DressUpGame: React.FunctionComponent = () => {
                     <button className='bottom-button' onClick={() => setNextItem('bottom')}>
                         {bottom < bottomsOnNiki.length - 1 && <img className='clothes-button-img' src={bottomsOnNiki[bottom + 1].displayImage} />}
                     </button>
-                    <button className='overall-button' onClick={() => setNextItem('overalls')}>
+                    <button className='overall-button' onClick={() => setNextItem('overalls')} style={{left: '15%'}}>
                         {overalls < overallsOnNiki.length - 1 && <img className='clothes-button-img' src={overallsOnNiki[overalls + 1].displayImage} />}
                     </button>
                 </div>

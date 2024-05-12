@@ -2,7 +2,8 @@
     --footer-background-color: #fff4bc;
     --pastel-yellow: #fff4bc;
     --text-color-green: #80bc7c;
-    --text-color-default: #000000;
+    --text-color-green-hover: #95de90;
+    --text-color-default: #184f6b;
     --color-light: #ffffff;
     --paint-select-background: #d8cc8c;
     --paint-game-bg-1: #b9dbb9;
@@ -22,11 +23,11 @@
     --paint-game-bg-15: #5987b9;
     --paint-game-bg-16: #ab8ab3;
     --paint-game-bg-17: #3ea5d0;
-    --paint-game-bg-18: #2e5394;
+    --paint-game-bg-18: #ffd68f;
     --paint-game-bg-19: #2c9367;
     --paint-game-bg-20: #40ab48;
     --paint-game-bg-21: #d9de2f;
-    --paint-game-bg-22: #8a417a;
-    --paint-game-bg-23: #363f77;
+    --paint-game-bg-22: #e2a3f7;
+    --paint-game-bg-23: #ffffff;
     --paint-game-bg-24: #66bc98;
 }

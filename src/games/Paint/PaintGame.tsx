@@ -164,8 +164,8 @@ const PaintGame: React.FC = () => {
                 </div>
                 :
                 <div className='paint-game'>
-                    <h1>{PaintGameText.MENU_TITLE}</h1>
-                    <h3>{PaintGameText.MENU_SUBTITLE}</h3>
+                    <h1 className='greenHeaderText' style={{marginLeft: '10px'}}>{PaintGameText.MENU_TITLE}</h1>
+                    <h3 style={{marginLeft: '10px'}}>{PaintGameText.MENU_SUBTITLE}</h3>
                     <div className='menu-area'>
                         <button className='paint-select-button' onClick={() => setSelectedImage(picture1)}>
                             <img className='paint-menu-img' src={picture1}></img>

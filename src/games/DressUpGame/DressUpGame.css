@@ -1,6 +1,8 @@
 .dressup-container {
     background-color: var(--pastel-yellow);
     height: 100vh;
+    margin-top: 30px;
+    margin-left: 20px;
 }
 
 .dressup-title {
@@ -13,6 +15,7 @@
     margin: auto;
     display: table;
     font-family: 'Poppins';
+    font-size: 23px;
 }
 
 .game-container {

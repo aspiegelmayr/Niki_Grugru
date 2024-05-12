@@ -50,6 +50,7 @@
   overflow-y: auto; /* Enable vertical scrolling for content overflow */
   padding-top: 60px;
   padding-bottom: 20px;
+  background-color: var(--pastel-yellow);
 }
 
 .footer {
@@ -57,4 +58,9 @@
   color: var(--text-color-default);
   text-align: center;
   padding: 10px;
+}
+
+.navbar-content {
+ width: 100%;
+ justify-content: end;
 }

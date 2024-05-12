@@ -53,14 +53,18 @@ code {
 .mainPage__about {
   padding-top: 50px;
   text-align: justify;
-  max-width: 50%;
   margin: auto;
   font-family: 'Poppins';
   font-weight: 200;
+  padding-left: 25%;
+  padding-right: 25%;
+  background-color: white;
+  padding-bottom: 25px;
 }
 
 .mainPage__header {
   font-weight: bold;
+  color: #184f6b;
 }
 
 .mainPage__audiobookcover {

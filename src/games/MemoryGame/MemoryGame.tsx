@@ -23,15 +23,15 @@ const MemoryGame: React.FunctionComponent = () => {
 
   const cardCoordinates = [
     ['43%', "33%"],
-    ['80%', "53%"],
-    ['80%', "31%"],
+    ['84%', "53%"],
+    ['88%', "31%"],
     ['25%', "12%"],
     ['13%', "15%"],
     ['57%', "52%"],
     ['68%', "13%"],
     ['80%', "8%"],
     ['1%', "21%"],
-    ['69%', "34%"],
+    ['74%', "34%"],
     ['36%', "14%"],
     ['17%', "34%"],
     ['32%', "35%"],
@@ -113,14 +113,14 @@ const MemoryGame: React.FunctionComponent = () => {
     <div>
       {difficulty ? (
         <div className='memory-game-container'>
-          <h1 className='header-text'>{MemoryGameText.TITLE}</h1>
-          <h1 className='memory-subtitle-text'>{MemoryGameText.SUBTITLE}</h1>
+          <h1 className='header-text greenHeaderText' style={{fontSize: '26px'}}>{MemoryGameText.TITLE}</h1>
+          <h1 className='memory-subtitle-text' style={{fontSize: '16px'}}>{MemoryGameText.SUBTITLE}</h1>
           <div className='cards-container'>
             {shuffledImages.map((image, index) => (
               <div>
                 <img
                 key={index}
-                className={`memory-card`}
+                className={`memory-card ${foundItems.includes(image) ? 'found' : ''}`}
                 src={cardBack.file}
                 onClick={() => selectItem(index)}
                 style={{ position: 'absolute', left: cardCoordinates[index][0], top: cardCoordinates[index][1] }}
@@ -141,7 +141,7 @@ const MemoryGame: React.FunctionComponent = () => {
         <div className='memory-game-container'>
           <div className='header'>
             <div>
-              <h1 className='greenHeaderText'>{MemoryGameText.TITLE}</h1>
+              <p className='greenHeaderText'>{MemoryGameText.TITLE}</p>
               <h3 className='memory-subtitle-text'>{MemoryGameText.SUBTITLE}</h3>
               <div>
                 <button className={preselectedDifficulty === 'easy' ? 'button selected' : 'button'} onClick={() => setPreselectedDifficulty('easy')}>{MemoryGameText.LEVEL_1}</button>

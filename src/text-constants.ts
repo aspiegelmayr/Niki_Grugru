@@ -55,7 +55,7 @@ export const GameSelectionText = {
 }
 
 export const VideoSelectionText = {
-    VIDEO_SELECTION_TITLE: 'Schaue Videos',
+    VIDEO_SELECTION_TITLE: 'Wähle dein Video',
     VIDEOS: {
         CLOTHES: {
             TITLE: 'Kleidung',
@@ -106,8 +106,16 @@ export const MagicGameText = {
 }
 
 export const PaintGameText = {
-    MENU_TITLE: 'Male deine Lieblingsmoemente von Niki und Grugru',
+    MENU_TITLE: 'Male deine Lieblingsmomente von Niki und Grugru',
     MENU_SUBTITLE: 'Wähle deine Vorlage',
     BACKGROUND_COLOR_SELECT: 'Wähle deine Hintergrundfarbe',
     STROKE_COLOR_SELECT: 'Wähle deine Malfarbe'
+}
+
+export const InfoPageText = {
+    TITLE: 'Info für Eltern und Kindergartenpädagog*innen',
+    HEADER_1: 'Ziel des Projektes',
+    TEXT_1: 'Es ist von entscheidender Bedeutung, Medien für Kinder zu schaffen, die frei von Genderklischees sind und dazu beitragen, diese zu bekämpfen. Die Art und Weise, wie Geschlechter in den Medien dargestellt werden, beeinflusst maßgeblich die Entwicklung von Kindern und kann langfristige Auswirkungen auf ihr Verhalten, ihre Einstellungen und ihre Selbstwahrnehmung haben.\n Wenn Kinder ständig mit stereotypen Rollenbildern konfrontiert werden, können sie beginnen, diese als normativ und unveränderlich zu betrachten. Mädchen könnten glauben, dass sie nur gut genug sind, wenn sie den Erwartungen entsprechen, die von traditionellen weiblichen Stereotypen vorgegeben werden, während Jungen möglicherweise das Gefühl haben, ihre Männlichkeit beweisen zu müssen, indem sie sich bestimmten Verhaltensweisen und Interessen zuwenden. Diese Einschränkungen können zu einem begrenzten Verständnis von sich selbst und anderen führen und die Entfaltung ihres vollen Potenzials behindern.\n Kinder, die ständig mit Genderklischees konfrontiert werden, könnten auch Schwierigkeiten haben, ihre eigenen Interessen und Talente zu erkunden und zu entwickeln, wenn diese nicht mit den vorgefassten Vorstellungen ihres Geschlechts übereinstimmen. Dies kann zu einem Mangel an Selbstvertrauen, Selbstwertgefühl und einem Gefühl der Unzulänglichkeit führen.\n Es ist daher von größter Bedeutung, dass Kinder von Büchern, Serien und Co. umgeben sind die ihnen die Freiheit übermitteln, ihre Identität jenseits von starren Geschlechterrollen zu erkunden.\n In den Geschichten von Niki und Grugru wird eine Welt geschaffen, die frei von den engen Grenzen traditioneller Geschlechterrollen ist. Hier wird bewusst vermieden, stereotype Klischees zu reproduzieren. Stattdessen wird eine Umgebung dargestellt, in der Geschlecht/Gender keine starre Einteilung darstellt, sondern vielmehr eine vielfältige Palette von Identitäten und Ausdrucksformen umfasst.\n Niki und Grugru zeigen auf einfühlsame Weise, wie eine gendersensible Umgebung aussehen kann, ohne dabei in tadelnde Predigten zu verfallen. Es geht nicht darum, mit dem Finger zu zeigen oder bestimmte Verhaltensweisen zu verurteilen. Vielmehr wird ein Raum geschaffen, der es den Kindern ermöglicht, sich frei zu entfalten und ihre eigenen Interessen und Talente zu erkunden, ohne von starren Geschlechtererwartungen eingeschränkt zu werden.\n Indem Kinder mit vielfältiger Darstellungen von Geschlecht und Vielfalt konfrontiert werden, können Kinder lernen, die Unterschiede zu schätzen und zu respektieren, anstatt sie zu verurteilen. Sie können ein gesundes Selbstbewusstsein entwickeln, das auf ihren individuellen Stärken und Fähigkeiten basiert, anstatt auf vorgegebenen Geschlechtsnormen.',
+    HEADER_2: 'Warum sollt ihr Pronomen für Niki vermeiden?',
+    TEXT_2: 'Die Entscheidung, dass Niki in den Geschichten keine Pronomen hat, ist ein wichtiger Schritt, um die Geschlechtervielfalt und -flexibilität zu betonen. Indem Niki keine bestimmten Pronomen zugewiesen werden, wird verdeutlicht, dass Geschlecht/Gender nicht die einzige oder wichtigste Eigenschaft einer Person ist. Dies ermöglicht den Kindern, Niki als individuelle Persönlichkeit wahrzunehmen, unabhängig von traditionellen Geschlechtszuweisungen. Zudem können sich alle Kinder unabhängig von deren Geschlecht/Gender mit Niki identifizieren.\n Für Kindergartenpädagog*innen und Eltern ist es wichtig, diese Entscheidung zu berücksichtigen, da eine offene und inklusive Umgebung gefördert werden soll, in der alle Kinder sich akzeptiert und respektiert fühlen. Indem darauf geachtet wird, Niki ohne Pronomen darzustellen, kann eine Botschaft der Wertschätzung für Geschlechtervielfalt gesendet werden und man ermutigt die Kinder dazu, offen über Geschlechteridentität und -ausdruck nachzudenken.'
 }

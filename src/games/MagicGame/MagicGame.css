@@ -18,10 +18,10 @@
 }
 
 .paper {
-    max-height: 250px;
+    max-height: 270px;
     position: absolute;
-    left: 76%;
-    top: 55%;
+    left: 78%;
+    top: 52%;
 }
 
 .item {
@@ -35,7 +35,7 @@
 }
 
 .found {
-    opacity: 0.5;
+    opacity: 0;
 }
 
 .header {
@@ -67,7 +67,7 @@
     position: relative;
     width: 4px;
     height: 100vh;
-    background-color: brown;
+    background-color: #78594f;
     left: 70%;
 }
 
@@ -225,11 +225,21 @@
     left: 77%;
     top: 11%;
     position: absolute;
+    font-size: 22px;
 }
 
 .potion-image {
     height: 24vh;
     position: absolute;
-    left: 79%;
-    top: 28%;
+    left: 80%;
+    top: 22%;
+}
+
+.startMagic {
+    left: 20%;
+    position: relative;
+}
+
+.found-ingredient {
+    opacity: 0.6;
 }

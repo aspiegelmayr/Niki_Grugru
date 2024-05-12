@@ -10,12 +10,16 @@
     flex-direction: column;
     align-items: center;
     width: 200px;
-    margin: 5px;
+    margin: 15px;
     box-sizing: border-box;
     text-decoration: none;
+    flex: 0 1 calc(100% - 50px);
+    flex-basis: 40%;
+    align-items: center;
 
     &:hover {
         cursor: pointer;
+        color: var(--text-color-green-hover);
     }
 }
 
@@ -25,15 +29,25 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+    background-color: white;
 }
 
 .chapterSelection__button__image {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 400px;
+    object-fit: cover;
+    margin: 10px;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .chapterSelectPage__header {
     font-family: 'Poppins';
     font-weight: bold;
-    font-size: 29px;
+    font-size: 36px;
+    color: var(--text-color-default);
+    margin-bottom: 50px;
+    margin-top: 30px;
 }

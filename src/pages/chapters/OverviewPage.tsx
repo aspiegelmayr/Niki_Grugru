@@ -1,5 +1,5 @@
 import React from 'react'
-import chapterSelectionHeader from '../../assets/headerImages/chapterSelectionHeader.jpeg';
+import chapterSelectionHeader from '../../assets/headerImages/chapterSelectionHeader.png';
 import './ChapterSelection.css';
 import { JSX } from 'react/jsx-runtime';
 
@@ -11,7 +11,7 @@ interface LinkItem {
 
 interface Props {
   title: string;
-  linkItems: LinkItem[]
+  linkItems?: LinkItem[]
   chapterTitle: string;
   headerImg: string;
 }
@@ -20,25 +20,27 @@ const OverviewPage: React.FunctionComponent<Props> = (props) => {
 
   function createLinks() {
     const linkItems: JSX.Element[] = [];
-    props.linkItems.forEach(element => {
-      linkItems.push(
-        <a href={element.linkTo} className='chapterSelection__button'>
-          <p className='greenHeaderText'>{element.title}</p>
-          <img src={element.linkImage} className='chapterSelection__button__image'></img>
-        </a>
-      )
-    });
+    if(props.linkItems){
+      props.linkItems.forEach(element => {
+        linkItems.push(
+          <a href={element.linkTo} className='chapterPage__button greenHeaderText'>
+            {element.title}
+            <img src={element.linkImage} className='chapterPage__buttonImg'></img>
+          </a>
+        )
+      });
+    }
     return linkItems;
   }
 
   return (
     <div className='mainContent'>
       <div>
-        <img src={chapterSelectionHeader} className='mainPage__headerimage'></img>
+        <img src={props.headerImg} className='mainPage__headerimage'></img>
       </div>
       <div className='chapterSelectPage__about'>
         <h1 className='chapterSelectPage__header'>{props.title}</h1>
-        <div className="chapterSelection__container">
+        <div className="animation-game-container" style={{maxWidth: "80%"}}>
           {createLinks()}
         </div>
       </div>

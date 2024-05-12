@@ -1,0 +1,16 @@
+.infoTextHeader {
+    font-family: 'Poppins';
+    font-size: 19px;
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    color: var(--text-color-default);
+}
+
+.infoText {
+    text-align: justify;
+}
+
+.infoPage__container {
+    max-width: 80%;
+}

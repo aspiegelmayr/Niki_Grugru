@@ -2,6 +2,8 @@
    position: absolute;
    background-color: var(--pastel-yellow);
    width: 100vw;
+   margin-top: 10px;
+   margin-left: 10px;
 }
 
 .memory-card {
@@ -32,8 +34,9 @@
 }
 
 .memory__newGame-button {
-    top: 14%;
-    left: 60%;
+    top: 12%;
+    left: 79%;
+    right: 10px;
     position: fixed;
     background-color: var(--text-color-green);
     color: white;

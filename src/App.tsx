@@ -20,13 +20,14 @@ import overviewGame1Img from './assets/overviewImages/games/sampleImg_Dressup.pn
 import overviewGame2Img from './assets/overviewImages/games/sampleImg_memory.png';
 import overviewGame3Img from './assets/overviewImages/games/sampleImg_magic.png';
 import overviewGame4Img from './assets/overviewImages/games/sampleImg_paint.png';
-import chapterSelectionHeaderImage from './assets/headerImages/chapterSelectionHeader.jpeg';
-import gameSelectionHeaderImage from './assets/headerImages/gameSelectionHeader.jpeg';
-import videoSelectionHeaderImage from './assets/headerImages/videoSelectionHeader.jpeg';
-import chapter1HeaderImage from './assets/headerImages/chapter1Header.jpeg';
-import chapter2HeaderImage from './assets/headerImages/chapter2Header.jpeg';
-import chapter3HeaderImage from './assets/headerImages/chapter3Header.jpeg';
-import chapter4HeaderImage from './assets/headerImages/chapter4Header.jpeg';
+import chapterSelectionHeaderImage from './assets/headerImages/chapterSelectionHeader.png';
+import gameSelectionHeaderImage from './assets/headerImages/gameSelectionHeader.png';
+import videoSelectionHeaderImage from './assets/headerImages/videoSelectionHeader.png';
+import mainPageHeaderImage from './assets/headerImages/mainPageHeader.png';
+import chapter1HeaderImage from './assets/headerImages/chapter1Header.png';
+import chapter2HeaderImage from './assets/headerImages/chapter2Header.png';
+import chapter3HeaderImage from './assets/headerImages/chapter3Header.png';
+import chapter4HeaderImage from './assets/headerImages/chapter4Header.png';
 import chapter1Thumbnail from './assets/overviewImages/chapters/chapter1.png';
 import chapter2Thumbnail from './assets/overviewImages/chapters/chapter2.png';
 import chapter3Thumbnail from './assets/overviewImages/chapters/chapter3.png';
@@ -35,6 +36,7 @@ import chapter1VideoThumbnail from './assets/overviewImages/videos/chapter1.png'
 import chapter2VideoThumbnail from './assets/overviewImages/videos/chapter2.png';
 import chapter3VideoThumbnail from './assets/overviewImages/videos/chapter3.png';
 import chapter4VideoThumbnail from './assets/overviewImages/videos/chapter4.png';
+import InfoPage from './pages/info/InfoPage';
 
 const chapterLinkItems = [
   {linkTo: '/chapters/1', title: 'Kapitel 1', linkImage: chapter1Thumbnail},
@@ -70,10 +72,10 @@ function App() {
     <div className="App">
       <Navbar fixed="top" style={{ backgroundColor: "white" }}>
         <Container style={{}}>
-          <Navbar.Brand href="#home"><Nav.Link href="/" style={{ color: "#2a5069" }}>Niki & GruGru</Nav.Link></Navbar.Brand>
+          <Navbar.Brand href="#home"><Nav.Link href="/" style={{ color: "#2a5069" }}>Niki & Grugru</Nav.Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            <Nav className="me-auto">
+            <Nav className="me-auto navbar-content">
               <NavDropdown title={<b style={{ color: "#2a5069" }}>Kapitel</b>} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/chapters" style={{ color: "#2a5069" }}>{NavBarText.CHAPTERS_DROPDOWN.OVERVIEW}</NavDropdown.Item>
                 {renderChapterItem()}
@@ -92,6 +94,7 @@ function App() {
                 <NavDropdown.Item href="/videos/3" style={{ color: "#2a5069" }}>Kapitel 3</NavDropdown.Item>
                 <NavDropdown.Item href="/videos/4" style={{ color: "#2a5069" }}>Kapitel 4</NavDropdown.Item>
               </NavDropdown>
+              <Nav.Link style={{ color: "#2a5069", fontWeight:"bold" }} href="/info">Info</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -114,12 +117,13 @@ function App() {
             <Route path="videos/2" element={<VideoPage chapter={Chapters[1]} animationName={chapter2Animation}/>}></Route>
             <Route path="videos/3" element={<VideoPage chapter={Chapters[2]} animationName={chapter3Animation}/>}></Route>
             <Route path='videos/4' element={<VideoPage chapter={Chapters[3]} animationName={chapter4Animation}/>}></Route>
+            <Route path='info' element={<InfoPage/>}></Route>
             <Route path="/" element={<MainPage />}>
             </Route>
           </Routes>
         </BrowserRouter>
       </div>
-      <div className='footer'>Niki & GruGru</div>
+      <div className='footer'>Niki & Grugru</div>
     </div>
   )
 }

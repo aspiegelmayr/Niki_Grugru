@@ -20,6 +20,7 @@ const MemoryGame: React.FunctionComponent = () => {
   const [difficulty, setDifficulty] = React.useState<string>('');
   const [flippedCards, setFlippedCards] = React.useState<boolean[]>(new Array(20).fill(false));
   const [preselectedDifficulty, setPreselectedDifficulty] = React.useState<string>('');
+  const [highlightedCard, setHighlightedCard] = React.useState<number>(-2);
 
   const cardCoordinates = [
     ['43%', "33%"],
@@ -64,20 +65,20 @@ const MemoryGame: React.FunctionComponent = () => {
     }
     setShuffledImages(availableItems);
     if (difficulty === 'easy') {
-      setFlippedCards(new Array(20).fill(true)); // Flip all cards initially for easy difficulty
+      setFlippedCards(new Array(20).fill(true));
     }
   }
 
   function selectItem(index: number) {
-    // If the clicked card is already found, return early
+    if(difficulty === 'easy'){
+      setHighlightedCard(index);
+    }
     if (foundItems.includes(shuffledImages[index])) {
       return;
     }
 
-    // If there's a clicked card and it's not the same as the current one, check for a match
     if (clickedCardIndex !== null && clickedCardIndex !== index) {
       if (shuffledImages[clickedCardIndex] === shuffledImages[index]) {
-        // Match found, add both cards to found items
         setFoundItems(prevState => [...prevState, shuffledImages[clickedCardIndex], shuffledImages[index]]);
       } else {
         if (difficulty === 'hard') {
@@ -119,15 +120,15 @@ const MemoryGame: React.FunctionComponent = () => {
             {shuffledImages.map((image, index) => (
               <div>
                 <img
-                key={index}
-                className={`memory-card ${foundItems.includes(image) ? 'found' : ''}`}
+                key={`cardBack${index}`}
+                className={`memory-card ${foundItems.includes(image) ? 'found' : ''} ${highlightedCard === index ? 'highlighted' : ''}`}
                 src={cardBack.file}
                 onClick={() => selectItem(index)}
                 style={{ position: 'absolute', left: cardCoordinates[index][0], top: cardCoordinates[index][1] }}
               />
               <img
-                key={index}
-                className={`memory-card ${foundItems.includes(image) ? 'found' : ''}`}
+                key={`card${index}`}
+                className={`memory-card ${foundItems.includes(image) ? 'found' : ''} ${highlightedCard === index ? 'highlighted' : ''}`}
                 src={flippedCards[index] ? image : ''}
                 onClick={() => selectItem(index)}
                 style={{ position: 'absolute', left: cardCoordinates[index][0], top: cardCoordinates[index][1] }}

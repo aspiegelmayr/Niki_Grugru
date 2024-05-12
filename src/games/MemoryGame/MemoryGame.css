@@ -51,3 +51,7 @@
     left: 25%;
     position: relative;
 }
+
+.highlighted {
+    border: 2px solid green;
+} 

@@ -1,6 +1,5 @@
 import React from 'react'
-import { ChapterSelectionText } from '../../text-constants';
-import chapterSelectionHeader from '../../assets/headerImages/chapterSelectionHeader.png';
+import chapterSelectionHeader from '../../assets/headerImages/chapterSelectionHeader.jpeg';
 import './ChapterSelection.css';
 import { JSX } from 'react/jsx-runtime';
 
@@ -13,6 +12,8 @@ interface LinkItem {
 interface Props {
   title: string;
   linkItems: LinkItem[]
+  chapterTitle: string;
+  headerImg: string;
 }
 
 const OverviewPage: React.FunctionComponent<Props> = (props) => {
@@ -32,7 +33,9 @@ const OverviewPage: React.FunctionComponent<Props> = (props) => {
 
   return (
     <div className='mainContent'>
-      <div><img src={chapterSelectionHeader} className='mainPage__headerimage'></img></div>
+      <div>
+        <img src={chapterSelectionHeader} className='mainPage__headerimage'></img>
+      </div>
       <div className='chapterSelectPage__about'>
         <h1 className='chapterSelectPage__header'>{props.title}</h1>
         <div className="chapterSelection__container">

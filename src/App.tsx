@@ -1,6 +1,6 @@
 import './App.css'
 import DressUpGame from './games/DressUpGame/DressUpGame'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import MainPage from './MainPage';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import Memory from './games/MemoryGame/MemoryGame';
@@ -16,27 +16,45 @@ import chapter2Animation from './assets/animations/chapter2.mp4'
 import chapter3Animation from './assets/animations/chapter3.mp4'
 import chapter4Animation from './assets/animations/chapter4.mp4'
 import OverviewPage from './pages/chapters/OverviewPage';
-import placeholderImg from './assets/mainPage/audiobook_cover.png'
+import overviewGame1Img from './assets/overviewImages/games/sampleImg_Dressup.png';
+import overviewGame2Img from './assets/overviewImages/games/sampleImg_memory.png';
+import overviewGame3Img from './assets/overviewImages/games/sampleImg_magic.png';
+import overviewGame4Img from './assets/overviewImages/games/sampleImg_paint.png';
+import chapterSelectionHeaderImage from './assets/headerImages/chapterSelectionHeader.jpeg';
+import gameSelectionHeaderImage from './assets/headerImages/gameSelectionHeader.jpeg';
+import videoSelectionHeaderImage from './assets/headerImages/videoSelectionHeader.jpeg';
+import chapter1HeaderImage from './assets/headerImages/chapter1Header.jpeg';
+import chapter2HeaderImage from './assets/headerImages/chapter2Header.jpeg';
+import chapter3HeaderImage from './assets/headerImages/chapter3Header.jpeg';
+import chapter4HeaderImage from './assets/headerImages/chapter4Header.jpeg';
+import chapter1Thumbnail from './assets/overviewImages/chapters/chapter1.png';
+import chapter2Thumbnail from './assets/overviewImages/chapters/chapter2.png';
+import chapter3Thumbnail from './assets/overviewImages/chapters/chapter3.png';
+import chapter4Thumbnail from './assets/overviewImages/chapters/chapter4.png';
+import chapter1VideoThumbnail from './assets/overviewImages/videos/chapter1.png';
+import chapter2VideoThumbnail from './assets/overviewImages/videos/chapter2.png';
+import chapter3VideoThumbnail from './assets/overviewImages/videos/chapter3.png';
+import chapter4VideoThumbnail from './assets/overviewImages/videos/chapter4.png';
 
 const chapterLinkItems = [
-  {linkTo: '/chapters/1', title: 'Kapitel 1', linkImage: placeholderImg},
-  {linkTo: '/chapters/2', title: 'Kapitel 2', linkImage: placeholderImg},
-  {linkTo: '/chapters/3', title: 'Kapitel 3', linkImage: placeholderImg},
-  {linkTo: '/chapters/4', title: 'Kapitel 4', linkImage: placeholderImg}
+  {linkTo: '/chapters/1', title: 'Kapitel 1', linkImage: chapter1Thumbnail},
+  {linkTo: '/chapters/2', title: 'Kapitel 2', linkImage: chapter2Thumbnail},
+  {linkTo: '/chapters/3', title: 'Kapitel 3', linkImage: chapter3Thumbnail},
+  {linkTo: '/chapters/4', title: 'Kapitel 4', linkImage: chapter4Thumbnail}
 ];
 
 const gameLinkItems = [
-  {linkTo: '/games/1', title: 'Kleidung', linkImage: placeholderImg},
-  {linkTo: '/games/2', title: 'Memory', linkImage: placeholderImg},
-  {linkTo: '/games/3', title: 'Zaubern', linkImage: placeholderImg},
-  {linkTo: '/games/4', title: 'Malen', linkImage: placeholderImg}
+  {linkTo: '/games/1', title: 'Kleidung', linkImage: overviewGame1Img},
+  {linkTo: '/games/2', title: 'Memory', linkImage: overviewGame2Img},
+  {linkTo: '/games/3', title: 'Zaubern', linkImage: overviewGame3Img},
+  {linkTo: '/games/4', title: 'Malen', linkImage: overviewGame4Img}
 ];
 
 const animationLinkItems = [
-  {linkTo: '/videos/1', title: 'Kapitel 1', linkImage: placeholderImg},
-  {linkTo: '/videos/2', title: 'Kapitel 2', linkImage: placeholderImg},
-  {linkTo: '/videos/3', title: 'Kapitel 3', linkImage: placeholderImg},
-  {linkTo: '/videos/4', title: 'Kapitel 4', linkImage: placeholderImg}
+  {linkTo: '/videos/1', title: 'Kapitel 1', linkImage: chapter1VideoThumbnail},
+  {linkTo: '/videos/2', title: 'Kapitel 2', linkImage: chapter2VideoThumbnail},
+  {linkTo: '/videos/3', title: 'Kapitel 3', linkImage: chapter3VideoThumbnail},
+  {linkTo: '/videos/4', title: 'Kapitel 4', linkImage: chapter4VideoThumbnail}
 ];
 
 function renderChapterItem() {
@@ -81,17 +99,17 @@ function App() {
       <div className='content'>
         <BrowserRouter>
           <Routes>
-            <Route path="chapters" element={<OverviewPage title={ChapterSelectionText.CHAPTER_SELECTION_TITLE} linkItems={chapterLinkItems} />}></Route>
-            <Route path="chapters/1" element={<ChapterPage chapter={Chapters[0]} />}></Route>
-            <Route path="chapters/2" element={<ChapterPage chapter={Chapters[1]} />}></Route>
-            <Route path="chapters/3" element={<ChapterPage chapter={Chapters[2]} />}></Route>
-            <Route path="chapters/4" element={<ChapterPage chapter={Chapters[3]} />}></Route>
-            <Route path="games" element={<OverviewPage title={GameSelectionText.GAME_SELECTION_TITLE} linkItems={gameLinkItems} />}></Route>
+            <Route path="chapters" element={<OverviewPage headerImg={chapterSelectionHeaderImage} chapterTitle='Kapitel' title={ChapterSelectionText.CHAPTER_SELECTION_TITLE} linkItems={chapterLinkItems} />}></Route>
+            <Route path="chapters/1" element={<ChapterPage chapter={Chapters[0]} gameImage={overviewGame1Img} videoImage={chapter1VideoThumbnail} headerImage={chapter1HeaderImage}/>}></Route>
+            <Route path="chapters/2" element={<ChapterPage chapter={Chapters[1]} gameImage={overviewGame2Img} videoImage={chapter2VideoThumbnail} headerImage={chapter2HeaderImage}/>}></Route>
+            <Route path="chapters/3" element={<ChapterPage chapter={Chapters[2]} gameImage={overviewGame3Img} videoImage={chapter3VideoThumbnail} headerImage={chapter3HeaderImage}/>}></Route>
+            <Route path="chapters/4" element={<ChapterPage chapter={Chapters[3]} gameImage={overviewGame4Img} videoImage={chapter4VideoThumbnail} headerImage={chapter4HeaderImage}/>}></Route>
+            <Route path="games" element={<OverviewPage headerImg={gameSelectionHeaderImage} chapterTitle='Spiele' title={GameSelectionText.GAME_SELECTION_TITLE} linkItems={gameLinkItems} />}></Route>
             <Route path="games/1" element={<DressUpGame />}></Route>
             <Route path="games/2" element={<Memory />}></Route>
             <Route path="games/3" element={<MagicGame />}></Route>
             <Route path='games/4' element={<PaintGame />}></Route>
-            <Route path="videos" element={<OverviewPage title={VideoSelectionText.VIDEO_SELECTION_TITLE} linkItems={animationLinkItems} />}></Route>
+            <Route path="videos" element={<OverviewPage headerImg={videoSelectionHeaderImage} chapterTitle='Videos' title={VideoSelectionText.VIDEO_SELECTION_TITLE} linkItems={animationLinkItems} />}></Route>
             <Route path="videos/1" element={<VideoPage chapter={Chapters[0]} animationName={chapter1Animation} />}></Route>
             <Route path="videos/2" element={<VideoPage chapter={Chapters[1]} animationName={chapter2Animation}/>}></Route>
             <Route path="videos/3" element={<VideoPage chapter={Chapters[2]} animationName={chapter3Animation}/>}></Route>

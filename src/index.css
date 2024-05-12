@@ -17,23 +17,33 @@ code {
 }
 
 .hatButton {
-  top: -50px;position: relative;left: -400px;
+  top: -50px;
+  position: relative;
+  left: -400px;
 }
 
 .accessoriesButton {
-  top: -50px;position: relative;left: -400px;
+  top: -50px;
+  position: relative;
+  left: -400px;
 }
 
 .topsButton {
-  top: -50px;position: relative;left: -400px;
+  top: -50px;
+  position: relative;
+  left: -400px;
 }
 
 .bottomsButton {
-  top: -50px;position: relative;left: -400px;
+  top: -50px;
+  position: relative;
+  left: -400px;
 }
 
 .overallsButton {
-  top: -50px;position: relative;left: -400px;
+  top: -50px;
+  position: relative;
+  left: -400px;
 }
 
 .mainPage__headerimage {
@@ -59,8 +69,18 @@ code {
 }
 
 .greenHeaderText {
-    font-family: 'Schoolbell';
-    color: var(--text-color-green);
-    font-size: 36px;
-    font-weight: bold;
+  font-family: 'Schoolbell';
+  color: var(--text-color-green);
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.headerImg__text {
+  font-family: 'Schoolbell';
+  color: var(--text-color-green);
+  font-size: 53px;
+  font-weight: bold;
+  position: absolute;
+  top: 25%;
+  right: 20%;
 }

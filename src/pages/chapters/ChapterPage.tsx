@@ -1,11 +1,12 @@
-import React from 'react'
-import chapterSelectionHeader from '../../assets/headerImages/chapterSelectionHeader.png';
+import React from 'react';
 import Chapter from './chapter';
 import './ChapterPage.css'
-import placeholderImg from '../../assets/headerImages/minigamesHeader.png'
 
 interface Props {
   chapter: Chapter;
+  gameImage: string;
+  videoImage: string;
+  headerImage: string;
 }
 
 
@@ -19,7 +20,7 @@ const ChapterPage: React.FunctionComponent<Props> = (props) => {
   const linkToAnimation = '/videos/' + chapterNumber;
   return (
     <div className='mainContent'>
-      <div><img src={chapterSelectionHeader} className='mainPage__headerimage'></img></div>
+      <div><img src={props.headerImage} className='mainPage__headerimage'></img></div>
       <div className='mainPage__about'>
         <h1 className='mainPage__header'>{props.chapter.aboutPageTitle}</h1>
         {formatText(props.chapter.aboutPageText).map((line, index) => (
@@ -28,10 +29,10 @@ const ChapterPage: React.FunctionComponent<Props> = (props) => {
       </div>
       <div className='animation-game-container'>
         <a className="chapterPage__button greenHeaderText" href={linkToGame}>Game
-          <img className='chapterPage__buttonImg' src={placeholderImg}></img>
+          <img className='chapterPage__buttonImg' src={props.gameImage}></img>
         </a>
         <a className="chapterPage__button greenHeaderText" href={linkToAnimation}>Video
-          <img className='chapterPage__buttonImg' src={placeholderImg}></img>
+          <img className='chapterPage__buttonImg' src={props.videoImage}></img>
         </a>
       </div>
     </div>

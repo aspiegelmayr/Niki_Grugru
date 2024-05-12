@@ -35,7 +35,8 @@ import potion10 from "../../assets/MagicGame/potions/potion10.png";
 import './MagicGame.css';
 import { MagicGameText } from '../../text-constants';
 import questionMark from '../../assets/MagicGame/questionMark.png';
-import nikiGreen from '../../assets/MagicGame/niki_cauldron_green.png'
+import nikiGreen from '../../assets/MagicGame/niki_cauldron_green.png';
+import nikiRed from '../../assets/MagicGame/niki_cauldron_green.png';
 
 const MagicGame: React.FunctionComponent = () => {
   const [shuffledImages, setShuffledImages] = React.useState<string[]>([]);
@@ -44,6 +45,15 @@ const MagicGame: React.FunctionComponent = () => {
   const [difficulty, setDifficulty] = React.useState<string>('');
   const [preselectedDifficulty, setPreselectedDifficulty] = React.useState<string>('');
   const [potion, setPotion] = React.useState<string>('');
+  const [imageOfNiki, setImageOfNiki] = React.useState<string>(niki);
+
+React.useEffect(() => {
+    if (foundItems.length === 3) {
+        setImageOfNiki(nikiGreen);
+    } else {
+        setImageOfNiki(niki);
+    }
+}, [foundItems]);
 
   React.useEffect(() => {
     shuffleImages();
@@ -56,6 +66,14 @@ const MagicGame: React.FunctionComponent = () => {
   React.useEffect(() => {
     getPotionImage();
   }, []);
+
+  React.useEffect(() => {
+    if (foundItems.length > 0) {
+        setPreselectedDifficulty('hard');
+    } else {
+        setPreselectedDifficulty('easy');
+    }
+}, [foundItems]);
 
 
   function shuffleImages() {
@@ -89,6 +107,8 @@ const MagicGame: React.FunctionComponent = () => {
   function selectItem(id: string) {
     if (ingredients.includes(id)) {
       setFoundItems(prevState => [...prevState, id]);
+    } else {
+      setImageOfNiki(nikiRed)
     }
 
   }
@@ -161,13 +181,13 @@ const MagicGame: React.FunctionComponent = () => {
           <img className={`item item19 ${foundItems.includes(shuffledImages[18]) ? 'found' : ''}`} src={shuffledImages[18]} onClick={() => selectItem(shuffledImages[18])}></img>
           <img className={`item item20 ${foundItems.includes(shuffledImages[19]) ? 'found' : ''}`} src={shuffledImages[19]} onClick={() => selectItem(shuffledImages[19])}></img>
 
-          <img src={niki} className='niki'></img>
+          <img src={imageOfNiki} className='niki'></img>
           <button style={{ top: "90%", left: "30px", position: "fixed" }} onClick={restartGame} className='button'>Neues Spiel</button>
         </div>
       ) : (
         <div className='magicGame__container'>
           <div className='header'>
-            <img src={foundItems.length === 0 ? niki : nikiGreen} style={{ height: "80%" }}></img>
+            <img src={niki} style={{ height: "80%" }}></img>
             <div>
               <h1 className='greenHeaderText'>{MagicGameText.TITLE}</h1>
               <div>

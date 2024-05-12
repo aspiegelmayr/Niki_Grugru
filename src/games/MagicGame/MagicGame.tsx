@@ -36,7 +36,7 @@ import './MagicGame.css';
 import { MagicGameText } from '../../text-constants';
 import questionMark from '../../assets/MagicGame/questionMark.png';
 import nikiGreen from '../../assets/MagicGame/niki_cauldron_green.png';
-import nikiRed from '../../assets/MagicGame/niki_cauldron_green.png';
+import nikiRed from '../../assets/MagicGame/niki_cauldron_red.png';
 
 const MagicGame: React.FunctionComponent = () => {
   const [shuffledImages, setShuffledImages] = React.useState<string[]>([]);

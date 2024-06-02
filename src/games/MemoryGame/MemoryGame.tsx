@@ -108,6 +108,7 @@ const MemoryGame: React.FunctionComponent = () => {
     shuffleImages();
     setDifficulty('');
     setFlippedCards(new Array(20).fill(false));
+    setHighlightedCard(-1);
   }
 
   return (

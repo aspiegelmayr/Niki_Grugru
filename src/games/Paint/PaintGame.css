@@ -1,7 +1,6 @@
 .paint-game {
     background-color: var(--pastel-yellow);
     height: 100vh;
-    overflow: scroll;
     margin-left: 10px;
     margin-top: 10px;
 }
@@ -59,7 +58,7 @@
     pointer-events: none;
     bottom: -6em;
     top: 10px;
-    left: 10%;
+    left: 8%;
 }
 
 .ingame-menu-area {
@@ -135,4 +134,10 @@
     align-items: center;
     justify-content: space-between;
     height: 150px;
+  }
+
+  .paint-subtitle-text {
+    color: var(--text-color-default);
+    font-family: 'Poppins';
+    font-size: 23px;
   }

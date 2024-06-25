@@ -32,9 +32,9 @@ import potion7 from "../../assets/MagicGame/potions/potion7.png";
 import potion8 from "../../assets/MagicGame/potions/potion8.png";
 import potion9 from "../../assets/MagicGame/potions/potion9.png";
 import potion10 from "../../assets/MagicGame/potions/potion10.png";
+import magicWand from "../../assets/MagicGame/magicwand.png";
 import './MagicGame.css';
 import { MagicGameText } from '../../text-constants';
-import questionMark from '../../assets/MagicGame/questionMark.png';
 import nikiGreen from '../../assets/MagicGame/niki_cauldron_green.png';
 import nikiRed from '../../assets/MagicGame/niki_cauldron_red.png';
 
@@ -47,14 +47,31 @@ const MagicGame: React.FunctionComponent = () => {
   const [potion, setPotion] = React.useState<string>('');
   const [imageOfNiki, setImageOfNiki] = React.useState<string>(niki);
   const [lastFoundItemIndex, setLastFoundItemIndex] = React.useState<number>(0);
+  const [position, setPosition] = React.useState({ x: 0, y: 0 });
 
-React.useEffect(() => {
+  React.useEffect(() => {
     if (foundItems.length === 3) {
-        setImageOfNiki(nikiGreen);
+      setImageOfNiki(nikiGreen);
     } else {
-        setImageOfNiki(niki);
+      setImageOfNiki(niki);
     }
-}, [foundItems]);
+  }, [foundItems]);
+
+  React.useEffect(() => {
+    const handleMouseMove = (event: { clientX: any; clientY: any; }) => {
+      setPosition({
+        x: event.clientX,
+        y: event.clientY
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   React.useEffect(() => {
     shuffleImages();
@@ -70,11 +87,11 @@ React.useEffect(() => {
 
   React.useEffect(() => {
     if (foundItems.length > 0) {
-        setPreselectedDifficulty('hard');
+      setPreselectedDifficulty('hard');
     } else {
-        setPreselectedDifficulty('easy');
+      setPreselectedDifficulty('easy');
     }
-}, [foundItems]);
+  }, [foundItems]);
 
 
   function shuffleImages() {
@@ -98,7 +115,7 @@ React.useEffect(() => {
 
     while (ingredientNames.length < 3) {
       const randomNumber = Math.floor(Math.random() * shuffledImages.length);
-      if (!ingredientNames.find(ingredient => ingredient === shuffledImages[randomNumber] )){
+      if (!ingredientNames.find(ingredient => ingredient === shuffledImages[randomNumber])) {
         ingredientNames.push(shuffledImages[randomNumber]);
       }
     }
@@ -145,15 +162,15 @@ React.useEffect(() => {
           <div><p className='ingredient magicGame__ingredientNumber' style={{ left: "81%", top: "59%", height: '6vw' }}>1.</p><img className={`ingredient ${foundItems.includes(ingredients[0]) ? 'found-ingredient' : ''}`} src={ingredients[0]} style={{ left: "83%", top: "57%", height: '6vw' }}></img></div>
           <div><p className='ingredient magicGame__ingredientNumber' style={{ left: "81%", top: "71%", height: '6vw' }}>2.</p><img className={`ingredient ${foundItems.includes(ingredients[1]) ? 'found-ingredient' : ''}`} src={ingredients[1]} style={{ left: "83%", top: "68%", height: '6vw' }}></img></div>
           <div><p className='ingredient magicGame__ingredientNumber' style={{ left: "81%", top: "82%", height: '6vw' }}>3.</p>{difficulty === 'easy' ? (
-        <img
-          className={`ingredient ${foundItems.includes(ingredients[2]) ? 'found-ingredient' : ''}`}
-          src={ingredients[2]}
-          alt='?'
-          style={{ left: "83%", top: "79%", height: '6vw' }}
-        />
-      ) : (
-        <p className='ingredient magicGame__ingredientNumber' style={{ left: "84%", top: "82%", height: '6vw' }}>?</p>
-      )}</div>
+            <img
+              className={`ingredient ${foundItems.includes(ingredients[2]) ? 'found-ingredient' : ''}`}
+              src={ingredients[2]}
+              alt='?'
+              style={{ left: "83%", top: "79%", height: '6vw' }}
+            />
+          ) : (
+            <p className='ingredient magicGame__ingredientNumber' style={{ left: "84%", top: "82%", height: '6vw' }}>?</p>
+          )}</div>
 
           <img className='shelf shelf1' src={shelf}></img>
           <img className='shelf shelf2' src={shelf}></img>
@@ -195,6 +212,18 @@ React.useEffect(() => {
 
           <img src={imageOfNiki} className='niki'></img>
           <button style={{ top: "90%", left: "30px", position: "fixed" }} onClick={restartGame} className='button'>Neues Spiel</button>
+          <img
+            src={magicWand}
+            alt="Cursor Follower"
+            style={{
+              position: 'absolute',
+              left: `${position.x}px`,
+              top: `${position.y}px`,
+              pointerEvents: 'none',
+              transform: 'translate(-50%, -50%)',
+              height: '20vw'
+            }}
+          />
         </div>
       ) : (
         <div className='magicGame__container'>

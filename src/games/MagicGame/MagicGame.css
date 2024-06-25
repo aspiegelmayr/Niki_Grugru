@@ -31,7 +31,8 @@
 }
 
 .ingredient {
-    height: 50%;
+    height: 10%;
+    max-height: 300px;
     position: absolute;
 }
 
@@ -243,8 +244,9 @@
 
 .magicGame__ingredientNumber {
     color: var(--text-color-default);
-    font-size: 180%;
+    font-size: 200%;
     font-family: 'Schoolbell';
+
 }
 
 .magicGame__questionMark {

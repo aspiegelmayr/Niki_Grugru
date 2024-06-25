@@ -159,17 +159,17 @@ const MagicGame: React.FunctionComponent = () => {
           <p className='magicGame__instructions greenHeaderText'>{MagicGameText.INSTRUCTIONS}</p>
 
 
-          <div><p className='ingredient magicGame__ingredientNumber' style={{ left: "81%", top: "59%", height: '6vw' }}>1.</p><img className={`ingredient ${foundItems.includes(ingredients[0]) ? 'found-ingredient' : ''}`} src={ingredients[0]} style={{ left: "83%", top: "57%", height: '6vw' }}></img></div>
-          <div><p className='ingredient magicGame__ingredientNumber' style={{ left: "81%", top: "71%", height: '6vw' }}>2.</p><img className={`ingredient ${foundItems.includes(ingredients[1]) ? 'found-ingredient' : ''}`} src={ingredients[1]} style={{ left: "83%", top: "68%", height: '6vw' }}></img></div>
-          <div><p className='ingredient magicGame__ingredientNumber' style={{ left: "81%", top: "82%", height: '6vw' }}>3.</p>{difficulty === 'easy' ? (
+          <div><p className='ingredient magicGame__ingredientNumber' style={{ left: "81%", top: "59%"}}>1.</p><img className={`ingredient ${foundItems.includes(ingredients[0]) ? 'found-ingredient' : ''}`} src={ingredients[0]} style={{ left: "84%", top: "57%" }}></img></div>
+          <div><p className='ingredient magicGame__ingredientNumber' style={{ left: "81%", top: "71%"}}>2.</p><img className={`ingredient ${foundItems.includes(ingredients[1]) ? 'found-ingredient' : ''}`} src={ingredients[1]} style={{ left: "84%", top: "68%" }}></img></div>
+          <div><p className='ingredient magicGame__ingredientNumber' style={{ left: "81%", top: "82%"}}>3.</p>{difficulty === 'easy' ? (
             <img
               className={`ingredient ${foundItems.includes(ingredients[2]) ? 'found-ingredient' : ''}`}
               src={ingredients[2]}
               alt='?'
-              style={{ left: "83%", top: "79%", height: '6vw' }}
+              style={{ left: "84%", top: "79%"}}
             />
           ) : (
-            <p className='ingredient magicGame__ingredientNumber' style={{ left: "84%", top: "82%", height: '6vw' }}>?</p>
+            <p className='ingredient magicGame__ingredientNumber' style={{ left: "84%", top: "82%" }}>?</p>
           )}</div>
 
           <img className='shelf shelf1' src={shelf}></img>

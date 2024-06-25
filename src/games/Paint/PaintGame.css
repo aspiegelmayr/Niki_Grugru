@@ -50,7 +50,7 @@
 }
 
 .canvas {
-    border: 2px solid black;
+    border: 5px solid var(--text-color-green);
     margin: 5px;
 }
 
@@ -58,8 +58,8 @@
     position: absolute;
     pointer-events: none;
     bottom: -6em;
-    top: 0;
-    left: 0;
+    top: 7px;
+    left: 10%;
 }
 
 .ingame-menu-area {
@@ -85,3 +85,53 @@
     margin: 2px;
     font-family: 'Poppins';
 }
+
+.paintGame__strokeWidthBtn {
+    border: none;
+    border-radius: 100%;
+    margin-left: 10px;
+    background-color: var(--text-color-green);
+}
+
+.paintGame__strokeWidthBtnS {
+    height: 20px;
+    width: 20px;
+}
+
+.paintGame__strokeWidthBtnM {
+    height: 30px;
+    width: 30px;
+}
+
+.paintGame__strokeWidthBtnL {
+    height: 40px;
+    width: 40px;
+}
+
+.paintGame__strokeWidthBtnXL {
+    height: 50px;
+    width: 50px;
+}
+
+.paintGame__button-selected {
+    border: 2px solid #31592f;
+}
+
+.ingame-menu-area__stroke-color-pick {
+    display: flex;
+    flex-direction: column;
+}
+
+.ingame-menu-area__stroke-pick-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+  }
+  
+  .paintGame__strokeButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 150px;
+  }

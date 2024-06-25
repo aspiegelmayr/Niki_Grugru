@@ -35,10 +35,6 @@
     position: absolute;
 }
 
-.found {
-    opacity: 0;
-}
-
 .header {
     display: flex;
     align-items: center;
@@ -243,4 +239,14 @@
 
 .found-ingredient {
     opacity: 0.6;
+}
+
+.magicGame__ingredientNumber {
+    color: var(--text-color-default);
+    font-size: 180%;
+    font-family: 'Schoolbell';
+}
+
+.magicGame__questionMark {
+    color: beige;
 }

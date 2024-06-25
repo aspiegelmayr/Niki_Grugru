@@ -13,6 +13,7 @@ const PaintGame: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [isDrawing, setIsDrawing] = useState<boolean>(false);
     const [strokeColor, setStrokeColor] = useState<string>('red');
+    const [strokeSize, setStrokeSize] = useState<number>(1);
     const [bgColor, setBgColor] = useState<string>('white');
     const [selectedImage, setSelectedImage] = useState<string>('');
 
@@ -41,9 +42,9 @@ const PaintGame: React.FC = () => {
 
         if (!context) return;
         context.strokeStyle = strokeColor;
+        context.lineWidth = strokeSize;
 
         const startDrawing = (event: MouseEvent) => {
-            console.log(strokeColor);
             setIsDrawing(true);
             const canvas = canvasRef.current;
             if (!canvas) return;
@@ -93,7 +94,6 @@ const PaintGame: React.FC = () => {
     }, [isDrawing, strokeColor, selectedImage]); // Include selectedImage in the dependencies array
 
     function setColor(color: string) {
-        console.log("strokecolor changer");
         setStrokeColor(color);
     }
 
@@ -152,14 +152,38 @@ const PaintGame: React.FC = () => {
                             </div>
                             <br/>
                             <br/>
-                        </div>
-                        <div className='ingame-menu-area__stroke-color-pick'>
-                            <h3 className='greenHeaderText'>{PaintGameText.STROKE_COLOR_SELECT}</h3>
-                            <ColorPicker color={strokeColor} onChange={color => setColor(color.hex)} hideAlpha hideInputs />
-
-                            <button className='paintGame__ingameMenuButton' onClick={() => deleteStrokes()}>Alles löschen</button>
-                            <button className='paintGame__ingameMenuButton' onClick={() => setSelectedImage('')}>Anderes Bild wählen</button>
-                        </div>
+                            <div>
+      <h3 className='greenHeaderText'>{PaintGameText.STROKE_COLOR_SELECT}</h3>
+      <div className='ingame-menu-area__stroke-pick-container'>
+        <ColorPicker 
+          color={strokeColor} 
+          onChange={color => setColor(color.hex)} 
+          hideAlpha 
+          hideInputs 
+        />
+        <div className='paintGame__strokeButtons'>
+          <button 
+            className={`paintGame__strokeWidthBtn paintGame__strokeWidthBtnS ${strokeSize === 1 ? 'paintGame__button-selected' : ''}`} 
+            onClick={() => setStrokeSize(1)}
+          ></button>
+          <button 
+            className={`paintGame__strokeWidthBtn paintGame__strokeWidthBtnM ${strokeSize === 4 ? 'paintGame__button-selected' : ''}`} 
+            onClick={() => setStrokeSize(4)}
+          ></button>
+          <button 
+            className={`paintGame__strokeWidthBtn paintGame__strokeWidthBtnL ${strokeSize === 10 ? 'paintGame__button-selected' : ''}`} 
+            onClick={() => setStrokeSize(10)}
+          ></button>
+          <button 
+            className={`paintGame__strokeWidthBtn paintGame__strokeWidthBtnXL ${strokeSize === 12 ? 'paintGame__button-selected' : ''}`} 
+            onClick={() => setStrokeSize(12)}
+          ></button>
+        </div>
+      </div>
+      <button className='paintGame__ingameMenuButton' onClick={() => deleteStrokes()}>Alles löschen</button>
+      <button className='paintGame__ingameMenuButton' onClick={() => setSelectedImage('')}>Anderes Bild wählen</button>
+    </div>
+                        </div>   
                     </div>
                 </div>
                 :

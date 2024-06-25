@@ -19,7 +19,7 @@
 }
 
 .paper {
-    max-height: 270px;
+    height: 45%;
     position: absolute;
     left: 78%;
     top: 52%;
@@ -31,7 +31,7 @@
 }
 
 .ingredient {
-    max-height: 65px;
+    height: 50%;
     position: absolute;
 }
 

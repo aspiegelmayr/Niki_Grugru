@@ -60,6 +60,7 @@ code {
   padding-right: 25%;
   background-color: white;
   padding-bottom: 25px;
+  color: var(--text-color-default);
 }
 
 .mainPage__header {

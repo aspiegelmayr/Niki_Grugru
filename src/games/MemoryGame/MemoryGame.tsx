@@ -114,6 +114,7 @@ const MemoryGame: React.FunctionComponent = () => {
     setDifficulty('');
     setFlippedCards(new Array(20).fill(false));
     setClickEnabled(true);
+    setHighlightedCard(-1);
   }
 
   return (

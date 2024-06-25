@@ -131,8 +131,8 @@ const PaintGame: React.FC = () => {
                     <div className='canvas-container'>
                         <canvas
                             ref={canvasRef}
-                            width={selectedImage.indexOf(picture5) ? 700 : 800}
-                            height={selectedImage.indexOf(picture5) ? 600 : 420}
+                            width={(selectedImage.indexOf('picture5') !== -1 || selectedImage.indexOf('picture6') !== -1) ? 800 : 700}
+                            height={(selectedImage.indexOf('picture5') !== -1 || selectedImage.indexOf('picture6') !== -1) ? 420 : 600}
                             className='canvas'
                             style={{backgroundColor: bgColor}}
                         />
@@ -140,7 +140,7 @@ const PaintGame: React.FC = () => {
                             src={selectedImage}
                             alt="Overlay Image"
                             className='image-overlay'
-                            width={selectedImage.indexOf(picture5) ? 600 : 700}
+                            width={(selectedImage.indexOf('picture5') !== -1 || selectedImage.indexOf('picture6') !== -1) ? 700 : 600}
                         />
 
                     </div>

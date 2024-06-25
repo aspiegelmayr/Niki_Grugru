@@ -7,15 +7,15 @@
 
 .paintgame-container {
     position: relative;
-    height: 100vh;
+    height: 200vh;
+    width: 100%;
     background-color: var(--pastel-yellow);
 }
 
 .menu-area {
-    height: 90vh;
+    height: 105vh;
     display: flex;
     flex-wrap: wrap;
-    overflow: hidden;
 }
 
 .painting-area {

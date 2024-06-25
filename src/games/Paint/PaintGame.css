@@ -1,5 +1,5 @@
 .paint-game {
-    background-color: white;
+    background-color: var(--pastel-yellow);
     height: 100vh;
     overflow: scroll;
     margin-left: 10px;

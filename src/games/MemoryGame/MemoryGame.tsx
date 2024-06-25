@@ -27,7 +27,7 @@ const MemoryGame: React.FunctionComponent = () => {
     ['84%', "53%"],
     ['88%', "31%"],
     ['25%', "12%"],
-    ['13%', "15%"],
+    ['13%', "14%"],
     ['57%', "52%"],
     ['68%', "13%"],
     ['80%', "8%"],
@@ -49,9 +49,9 @@ const MemoryGame: React.FunctionComponent = () => {
   React.useEffect(() => {
     shuffleImages();
     if (difficulty === 'easy') {
-      setFlippedCards(new Array(20).fill(true)); // Flip all cards initially for easy difficulty
+      setFlippedCards(new Array(20).fill(true)); 
     } else {
-      setFlippedCards(new Array(20).fill(false)); // Keep cards face-down initially for other difficulties
+      setFlippedCards(new Array(20).fill(false));
     }
   }, [difficulty]);
 

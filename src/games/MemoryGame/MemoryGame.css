@@ -2,13 +2,12 @@
    position: absolute;
    background-color: var(--pastel-yellow);
    width: 100vw;
-   margin-top: 10px;
+   margin-top: 30px;
    margin-left: 10px;
 }
 
 .memory-card {
-    max-height: 150px;
-    max-width: 100px;
+    height: 19%;
     position: absolute;
     border-radius: 16px;
 }

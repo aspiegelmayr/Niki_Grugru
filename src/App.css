@@ -46,8 +46,8 @@
 }
 
 .content {
-  flex: 1; /* Allow the content area to grow and take up remaining space */
-  overflow-y: auto; /* Enable vertical scrolling for content overflow */
+  flex: 1;
+  overflow-y: auto;
   padding-top: 60px;
   padding-bottom: 20px;
   background-color: var(--pastel-yellow);

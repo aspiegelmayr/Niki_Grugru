@@ -21,13 +21,14 @@ const MemoryGame: React.FunctionComponent = () => {
   const [flippedCards, setFlippedCards] = React.useState<boolean[]>(new Array(20).fill(false));
   const [preselectedDifficulty, setPreselectedDifficulty] = React.useState<string>('');
   const [highlightedCard, setHighlightedCard] = React.useState<number>(-2);
+  const [clickEnabled, setClickEnabled] = React.useState<boolean>(true);
 
   const cardCoordinates = [
     ['43%', "33%"],
     ['84%', "53%"],
     ['88%', "31%"],
     ['25%', "12%"],
-    ['13%', "14%"],
+    ['13%', "15%"],
     ['57%', "52%"],
     ['68%', "13%"],
     ['80%', "8%"],
@@ -49,9 +50,9 @@ const MemoryGame: React.FunctionComponent = () => {
   React.useEffect(() => {
     shuffleImages();
     if (difficulty === 'easy') {
-      setFlippedCards(new Array(20).fill(true)); 
+      setFlippedCards(new Array(20).fill(true)); // Flip all cards initially for easy difficulty
     } else {
-      setFlippedCards(new Array(20).fill(false));
+      setFlippedCards(new Array(20).fill(false)); // Keep cards face-down initially for other difficulties
     }
   }, [difficulty]);
 
@@ -70,35 +71,39 @@ const MemoryGame: React.FunctionComponent = () => {
   }
 
   function selectItem(index: number) {
-    if(difficulty === 'easy'){
-      setHighlightedCard(index);
-    }
-    if (foundItems.includes(shuffledImages[index])) {
-      return;
-    }
-
-    if (clickedCardIndex !== null && clickedCardIndex !== index) {
-      if (shuffledImages[clickedCardIndex] === shuffledImages[index]) {
-        setFoundItems(prevState => [...prevState, shuffledImages[clickedCardIndex], shuffledImages[index]]);
-      } else {
-        if (difficulty === 'hard') {
-          setTimeout(() => {
-            const newFlippedCards = [...flippedCards];
-            newFlippedCards[clickedCardIndex] = false;
-            newFlippedCards[index] = false;
-            setFlippedCards(newFlippedCards);
-          }, 1000);
-        }
+    if (clickEnabled) {
+      if (difficulty === 'easy') {
+        setHighlightedCard(index);
       }
-      setClickedCardIndex(null);
-    } else {
-      setClickedCardIndex(index);
-    }
+      if (foundItems.includes(shuffledImages[index])) {
+        return;
+      }
 
-    if (difficulty === 'hard') {
-      const newFlippedCards = [...flippedCards];
-      newFlippedCards[index] = !newFlippedCards[index];
-      setFlippedCards(newFlippedCards);
+      if (clickedCardIndex !== null && clickedCardIndex !== index) {
+        if (shuffledImages[clickedCardIndex] === shuffledImages[index]) {
+          setFoundItems(prevState => [...prevState, shuffledImages[clickedCardIndex], shuffledImages[index]]);
+        } else {
+          if (difficulty === 'hard') {
+            setClickEnabled(false)
+            setTimeout(() => {
+              const newFlippedCards = [...flippedCards];
+              newFlippedCards[clickedCardIndex] = false;
+              newFlippedCards[index] = false;
+              setFlippedCards(newFlippedCards);
+              setClickEnabled(true);
+            }, 1000);
+          }
+        }
+        setClickedCardIndex(null);
+      } else {
+        setClickedCardIndex(index);
+      }
+
+      if (difficulty === 'hard') {
+        const newFlippedCards = [...flippedCards];
+        newFlippedCards[index] = !newFlippedCards[index];
+        setFlippedCards(newFlippedCards);
+      }
     }
   }
 
@@ -108,32 +113,32 @@ const MemoryGame: React.FunctionComponent = () => {
     shuffleImages();
     setDifficulty('');
     setFlippedCards(new Array(20).fill(false));
-    setHighlightedCard(-1);
+    setClickEnabled(true);
   }
 
   return (
     <div>
       {difficulty ? (
         <div className='memory-game-container'>
-          <h1 className='header-text greenHeaderText' style={{fontSize: '26px'}}>{MemoryGameText.TITLE}</h1>
-          <h1 className='memory-subtitle-text' style={{fontSize: '16px'}}>{MemoryGameText.SUBTITLE}</h1>
+          <h1 className='header-text greenHeaderText' style={{ fontSize: '26px' }}>{MemoryGameText.TITLE}</h1>
+          <h1 className='memory-subtitle-text' style={{ fontSize: '16px' }}>{MemoryGameText.SUBTITLE}</h1>
           <div className='cards-container'>
             {shuffledImages.map((image, index) => (
               <div>
                 <img
-                key={`cardBack${index}`}
-                className={`memory-card ${foundItems.includes(image) ? 'found' : ''} ${highlightedCard === index ? 'highlighted' : ''}`}
-                src={cardBack.file}
-                onClick={() => selectItem(index)}
-                style={{ position: 'absolute', left: cardCoordinates[index][0], top: cardCoordinates[index][1] }}
-              />
-              <img
-                key={`card${index}`}
-                className={`memory-card ${foundItems.includes(image) ? 'found' : ''} ${highlightedCard === index ? 'highlighted' : ''}`}
-                src={flippedCards[index] ? image : ''}
-                onClick={() => selectItem(index)}
-                style={{ position: 'absolute', left: cardCoordinates[index][0], top: cardCoordinates[index][1] }}
-              />
+                  key={`cardBack${index}`}
+                  className={`memory-card ${foundItems.includes(image) ? 'found' : ''} ${highlightedCard === index ? 'highlighted' : ''}`}
+                  src={cardBack.file}
+                  onClick={() => selectItem(index)}
+                  style={{ position: 'absolute', left: cardCoordinates[index][0], top: cardCoordinates[index][1] }}
+                />
+                <img
+                  key={`card${index}`}
+                  className={`memory-card ${foundItems.includes(image) ? 'found' : ''} ${highlightedCard === index ? 'highlighted' : ''}`}
+                  src={flippedCards[index] ? image : ''}
+                  onClick={() => selectItem(index)}
+                  style={{ position: 'absolute', left: cardCoordinates[index][0], top: cardCoordinates[index][1] }}
+                />
               </div>
             ))}
           </div>

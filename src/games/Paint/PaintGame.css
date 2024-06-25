@@ -1,6 +1,6 @@
 .paint-game {
     background-color: var(--pastel-yellow);
-    height: 100vh;
+    height: 200%;
     margin-left: 10px;
     margin-top: 10px;
 }
@@ -11,14 +11,11 @@
     background-color: var(--pastel-yellow);
 }
 
-.content {
-    overflow-y: hidden;
-}
-
 .menu-area {
     height: 90vh;
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .painting-area {

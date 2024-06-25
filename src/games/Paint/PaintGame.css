@@ -58,7 +58,7 @@
     position: absolute;
     pointer-events: none;
     bottom: -6em;
-    top: 7px;
+    top: 10px;
     left: 10%;
 }
 
@@ -126,6 +126,7 @@
     display: flex;
     align-items: center;
     background-color: white;
+    width: 357px;
   }
   
   .paintGame__strokeButtons {
